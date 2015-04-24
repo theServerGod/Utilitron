@@ -1,0 +1,22 @@
+<md-button class="md-button-toggle"
+  ng-click="toggle()"
+  aria-controls="ut-menu-{{section.name | nospace}}"
+  aria-expanded="{{isOpen()}}">
+  <div flex layout="row">
+    {{section.name}}
+    <span flex=""></span>
+    <span aria-hidden="true" class="md-toggle-icon"
+    ng-class="{'toggled' : isOpen()}">
+      <md-icon class="fa fa-chevron-up fa-fw"></md-icon>
+    </span>
+  </div>
+  <span class="visually-hidden">
+    Toggle {{isOpen()? 'expanded' : 'collapsed'}}
+  </span>
+</md-button>
+
+<ul ng-show="isOpen()" id="ut-menu-{{section.name | nospace}}" class="menu-toggle-list">
+  <li ng-repeat="page in section.pages">
+    <menu-link section="page"></menu-link>
+  </li>
+</ul>

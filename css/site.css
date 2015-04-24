@@ -1,0 +1,129 @@
+
+md-toolbar h1 {
+	font-weight: normal;
+}
+
+.md-toolbar-tools {
+	font-weight: 400;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	width: 100%;
+	height: 64px;
+	max-height: 64px;
+	padding: 0 16px;
+	margin: 0;
+}
+.md-toolbar-tools h1, .md-toolbar-tools h2, .md-toolbar-tools h3 {
+	color: #616161;
+}
+
+.ut-container {
+	padding: 16px;
+}
+
+.ut-content {
+	padding: 8px;
+	width: 100%;
+}
+
+.ut-toolbar {
+	background: #f2f2f2 !important;
+	color: #616161;
+	border-bottom: 1px solid #e5e5e5;
+	box-shadow: 0 0;
+}
+
+/* Sidenav area */
+/* UT Menu */
+.ut-menu .md-button {
+	border-radius: 0;
+	color: inherit;
+	cursor: pointer;
+	display: block;
+	line-height: 40px;
+	margin: 0;
+	max-height: 40px;
+	overflow: hidden;
+	padding: 0px 16px;
+	text-align: left;
+	text-decoration: none;
+	white-space: normal;
+	width: 100%;
+}
+
+.ut-menu li.parentActive,
+.ut-menu li.parentActive .menu-toggle-list,
+.ut-menu md-list-item.parentActive,
+.ut-menu md-list-item.parentActive .menu-toggle-list {
+  background-color: #f6f6f6;
+}
+.menu-toggle-list {
+	margin: 0;
+	padding: 0;
+  background: #fff;
+  max-height: 2000px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -webkit-transition-property: max-height;
+  -moz-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -moz-transition-property: max-height;
+  transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  transition-property: max-height;
+}
+.menu-toggle-list.ng-hide {
+  max-height: 0;
+}
+
+.ut-menu .menu-toggle-list a.md-button {
+  display: block;
+  font-weight: 400;
+  padding: 0 16px 0 32px;
+  text-transform: none;
+}
+.md-button-toggle .md-toggle-icon md-icon {
+	/* Needed if using font-awesome as icon */
+	margin-top: 10px;
+	color: grey;
+}
+.md-button-toggle .md-toggle-icon {
+  display: block;
+  margin-left: auto;
+  speak: none;
+  vertical-align: middle;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+}
+.md-button-toggle .md-toggle-icon.toggled {
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+}
+
+/* End UT Menu */
+md-list .md-button {
+  color: inherit;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+}
+  md-list .md-button.active, md-list .md-button.selected {
+    color: #03a9f4;
+  }
+
+  md-sidenav  md-list {
+    padding: 0px 0px 8px 0px;
+  }
+
+	md-sidenav md-list md-list-item {
+		width: 100%;
+	}

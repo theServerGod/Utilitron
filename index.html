@@ -1,0 +1,78 @@
+<!DOCTYPE>
+<html lang="en" ng-app="app" ng-controller="AppController as ac">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1">
+	<link rel="icon" sizes="128x128" type="image/png" href="/img/favicon.png">
+
+	<title ng-bind="$route.current.title ? 'Utilitron | ' + $route.current.title : 'Utilitron'"></title>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+
+	<!-- AngularJS -->
+	<link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="/bower_components/angular-route/angular-route.min.js"></script>
+	<script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+	<script src="/bower_components/angular-material/angular-material.min.js"></script>
+
+	<!-- Site CSS -->
+	<link rel="stylesheet" href="/css/site.css">
+
+	<!-- Site NG -->
+	<script src="/app/app.js"></script>
+	<script src="/app/models/menu.js"></script>
+	<script src="/app/filters/ngFilters.js"></script>
+	<script src="/app/controllers/app.js"></script>
+	<script src="/app/controllers/time-date.js"></script>
+	<script src="/app/directives/menu-link.js"></script>
+	<script src="/app/directives/menu-toggle.js"></script>
+</head>
+<body layout="column">
+	<md-toolbar layout="row">
+		<md-button class="menu" hide-gt-sm ng-click="toggleSidenav('left')">
+			<i class="fa fa-bars fa-fw"></i>
+			<span class="visually-hidden">Menu</span>
+		</md-button>
+		<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
+			<a ng-if="menu.currentSection && menu.currentSection.pages" ng-href="/#/" ng-click="focusSection()" ng-cloak>
+				{{menu.currentSection.name + ($route.current.title ? ' / ' + $route.current.title : 'Utilitron')}}
+			</a>
+			<a ng-if="!menu.currentSection.pages" ng-href="/#/" ng-click="focusSection()" ng-cloak>
+				{{$route.current.title ? $route.current.title : 'Utilitron'}}
+			</a>
+		</h1>
+	</md-toolbar>
+
+	<div layout="row" flex>
+		<md-sidenav layout="column" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+			<md-content flex role="navigation">
+				<md-list class="ut-menu">
+					<md-list-item ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}">
+						<h2 class="menu-heading md-subhead" ng-if="section-type === 'heading'" id="heading_{{ section.name }}">
+							{{section.name}}
+						</h2>
+
+						<menu-link section="section" ng-if="section.type === 'link'"></menu-link>
+						<menu-toggle section="section" ng-if="section.type === 'toggle'"></menu-toggle>
+
+						<ul ng-if="section.children" class="menu-nested-list">
+							<li ng-repeat="child in section.children" ng-class="{'childActive' : isSectionSelected(child)}">
+								<menu-link section="child" ng-if="child.type === 'link'"></menu-link>
+								<menu-toggle section="child" ng-if="child-type === 'toggle'"></menu-toggle>
+							</li>
+						</ul>
+					</md-list-item>
+				</md-list>
+			</md-content>
+		</md-sidenav>
+
+		<div layout="column" flex id="content" tabIndex="-1" role="main">
+			<md-content ng-view md-scroll-y flex layout-padding></md-content>
+		</div>
+	</div>
+</body>
+</html>
