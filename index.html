@@ -11,6 +11,9 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
+	<!-- Moment JS -->
+	<script src="bower_components/momentjs/min/moment.min.js"></script>
+
 	<!-- AngularJS -->
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
 
@@ -34,7 +37,7 @@
 </head>
 <body layout="column">
 	<md-toolbar layout="row">
-		<md-button class="menu" hide-gt-sm ng-click="toggleSidenav('left')">
+		<md-button class="menu" hide-gt-sm ng-click="toggleSidenav('left')" ng-cloak>
 			<i class="fa fa-bars fa-fw"></i>
 			<span class="visually-hidden">Menu</span>
 		</md-button>

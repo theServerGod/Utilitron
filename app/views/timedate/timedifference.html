@@ -1,4 +1,4 @@
-<section flex layout="column">
+<section flex layout="column" style="max-width:768px;">
   <form name="timeDifferenceForm">
     <div layout layout-sm>
       <md-input-container flex>
@@ -7,8 +7,18 @@
       </md-input-container>
       <md-input-container flex>
         <label>End</label>
-        <input type="time" ng-model="time.end" class="md-input">
+        <input type="time" ng-model="time.end" min="{{time.start}}" class="md-input">
       </md-input-container>
     </div>
   </form>
+  <div ng-show="time.difference">
+    <md-list>
+      <md-subheader class="md-no-sticky">Result</md-subheader>
+      <md-list-item>Combined format: {{time.difference.text}}</md-list-item>
+      <hr />
+      <md-list-item>Hours: {{time.difference.hrs}}</md-list-item>
+      <md-list-item>Minutes: {{time.difference.min}}</md-list-item>
+      <md-list-item>Seconds: {{time.difference.sec}}</md-list-item>
+    </md-list>
+  </div>
 </section>
