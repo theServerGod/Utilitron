@@ -3,7 +3,7 @@ app.directive('menuLink', function() {
     scope: {
       section: '='
     },
-    templateUrl: '/app/partials/menu-link.tmpl.html',
+    templateUrl: 'app/partials/menu-link.tmpl.html',
     link: function($scope, $element) {
       var controller = $element.parent().controller();
 

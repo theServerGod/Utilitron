@@ -3,7 +3,7 @@ app.directive('menuToggle', function() {
     scope: {
       section: '='
     },
-    templateUrl: '/app/partials/menu-toggle.tmpl.html',
+    templateUrl: 'app/partials/menu-toggle.tmpl.html',
     link: function($scope, $element) {
       var controller = $element.parent().controller();
 
