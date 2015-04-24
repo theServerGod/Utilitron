@@ -3,33 +3,33 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1">
-	<link rel="icon" sizes="128x128" type="image/png" href="/img/favicon.png">
+	<link rel="icon" sizes="128x128" type="image/png" href="img/favicon.png">
 
 	<title ng-bind="$route.current.title ? 'Utilitron | ' + $route.current.title : 'Utilitron'"></title>
 
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
 	<!-- AngularJS -->
-	<link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
 
-	<script src="/bower_components/angular/angular.min.js"></script>
-	<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
-	<script src="/bower_components/angular-route/angular-route.min.js"></script>
-	<script src="/bower_components/angular-aria/angular-aria.min.js"></script>
-	<script src="/bower_components/angular-material/angular-material.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+	<script src="bower_components/angular-material/angular-material.min.js"></script>
 
 	<!-- Site CSS -->
-	<link rel="stylesheet" href="/css/site.css">
+	<link rel="stylesheet" href="css/site.css">
 
 	<!-- Site NG -->
-	<script src="/app/app.js"></script>
-	<script src="/app/models/menu.js"></script>
-	<script src="/app/filters/ngFilters.js"></script>
-	<script src="/app/controllers/app.js"></script>
-	<script src="/app/controllers/time-date.js"></script>
-	<script src="/app/directives/menu-link.js"></script>
-	<script src="/app/directives/menu-toggle.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/models/menu.js"></script>
+	<script src="app/filters/ngFilters.js"></script>
+	<script src="app/controllers/app.js"></script>
+	<script src="app/controllers/time-date.js"></script>
+	<script src="app/directives/menu-link.js"></script>
+	<script src="app/directives/menu-toggle.js"></script>
 </head>
 <body layout="column">
 	<md-toolbar layout="row">
@@ -38,10 +38,10 @@
 			<span class="visually-hidden">Menu</span>
 		</md-button>
 		<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
-			<a ng-if="menu.currentSection && menu.currentSection.pages" ng-href="/#/" ng-click="focusSection()" ng-cloak>
+			<a ng-if="menu.currentSection && menu.currentSection.pages" ng-href="{{SITE_ROOT}}#/" ng-click="focusSection()" ng-cloak>
 				{{menu.currentSection.name + ($route.current.title ? ' / ' + $route.current.title : 'Utilitron')}}
 			</a>
-			<a ng-if="!menu.currentSection.pages" ng-href="/#/" ng-click="focusSection()" ng-cloak>
+			<a ng-if="!menu.currentSection.pages" ng-href="{{SITE_ROOT}}#/" ng-click="focusSection()" ng-cloak>
 				{{$route.current.title ? $route.current.title : 'Utilitron'}}
 			</a>
 		</h1>
