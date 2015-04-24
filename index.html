@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1">
+	<base href="{{SITE_ROOT}}">
 	<link rel="icon" sizes="128x128" type="image/png" href="img/favicon.png">
 
 	<title ng-bind="$route.current.title ? 'Utilitron | ' + $route.current.title : 'Utilitron'"></title>
@@ -38,10 +39,10 @@
 			<span class="visually-hidden">Menu</span>
 		</md-button>
 		<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
-			<a ng-if="menu.currentSection && menu.currentSection.pages" ng-href="{{SITE_ROOT}}#/" ng-click="focusSection()" ng-cloak>
+			<a ng-if="menu.currentSection && menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
 				{{menu.currentSection.name + ($route.current.title ? ' / ' + $route.current.title : 'Utilitron')}}
 			</a>
-			<a ng-if="!menu.currentSection.pages" ng-href="{{SITE_ROOT}}#/" ng-click="focusSection()" ng-cloak>
+			<a ng-if="!menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
 				{{$route.current.title ? $route.current.title : 'Utilitron'}}
 			</a>
 		</h1>
