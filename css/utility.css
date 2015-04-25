@@ -1,0 +1,27 @@
+/* Utility/Helper styling/formatting */
+
+/* Text styling */
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-red { color: red; }
+.text-green { color: green; }
+.text.blue { color: blue; }
+.text-bold { font-weight: bold; }
+.text-normal { font-weight: normal; }
+.text-overflow-ellipsis { text-overflow: ellipsis; }
+
+.bg-red { background-color: red; }
+.bg-green { background-color: green; }
+.bg-blue { background-color: blue; }
+
+.pull-left { float: left; }
+.pull-right { float: right; }
+
+/* Cursors */
+.cursor-help { cursor: help; }
+.cursor-pointer { cursor: pointer; }
+.cursor-progress { cursor: progress; }
+.cursor-none { cursor: none; }
+
+.select-none { user-select: none; -webkit-user-select: none; -moz-user-select: none; }

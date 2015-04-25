@@ -11,7 +11,8 @@ app.controller('AppController', [
 function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $rootScope, $log) {
 	var self = this;
 
-	$scope.SITE_ROOT = "http://theservergod.github.io/Utilitron/"; // FIXME - Add this as a proper constant
+	$scope.SITE_ROOT = 'http://theservergod.github.io/Utilitron/'; // FIXME - Add this as a proper constant
+	//$scope.SITE_ROOT = '/'; // Uncomment to use development base URI
 
 	// Expose $route var to app and child controllers - used mainly for $route.current
 	$scope.$route = $route;

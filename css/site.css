@@ -1,3 +1,21 @@
+/* Utilitron styling */
+
+/* Angular Material overrides and additions {{{ */
+.md-body-2, md-list .md-subheader, md-list-item.md-2-line .md-list-item-text h4, md-list-item.md-2-line > .md-no-style .md-list-item-text h4, md-list-item.md-3-line .md-list-item-text h4, md-list-item.md-3-line > .md-no-style .md-list-item-text h4, md-list-item.md-2-line .md-list-item-text p, md-list-item.md-2-line > .md-no-style .md-list-item-text p, md-list-item.md-3-line .md-list-item-text p, md-list-item.md-3-line > .md-no-style .md-list-item-text p {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 2.4rem;
+}
+md-list-item.md-2-line .md-list-item-text p, md-list-item.md-2-line > .md-no-style .md-list-item-text p, md-list-item.md-3-line .md-list-item-text p, md-list-item.md-3-line > .md-no-style .md-list-item-text p {
+    margin: 0px;
+    line-height: 1.6em;
+}
+md-list-item.md-2-line .md-list-item-text h3 {
+	margin-bottom: 0.2em;
+	font-weight: 300;
+	font-size: 90%;
+}
+.md-subheader { padding: 0; }
 
 md-toolbar h1 {
 	font-weight: normal;
@@ -23,6 +41,8 @@ md-toolbar h1 {
 .md-toolbar-tools h1, .md-toolbar-tools h2, .md-toolbar-tools h3 {
 	color: #616161;
 }
+
+/* }}} */
 
 .ut-container {
 	padding: 16px;
