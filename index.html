@@ -44,7 +44,7 @@
 		</md-button>
 		<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
 			<a ng-if="menu.currentSection && menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
-				{{menu.currentSection.name + ($route.current.title ? ' / ' + $route.current.title : 'Utilitron')}}
+				{{menu.currentSection.name + ($route.current.title ? ' > ' + $route.current.title : 'Utilitron')}}
 			</a>
 			<a ng-if="!menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
 				{{$route.current.title ? $route.current.title : 'Utilitron'}}
@@ -75,7 +75,7 @@
 			</md-content>
 		</md-sidenav>
 
-		<div layout="column" flex id="content" tabIndex="-1" role="main">
+		<div id="content" role="main" layout="column" flex tabIndex="-1">
 			<md-content ng-view md-scroll-y flex layout-padding layout-margin></md-content>
 		</div>
 	</div>
