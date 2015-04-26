@@ -38,11 +38,14 @@ md-toolbar h1 {
 	padding: 0 16px;
 	margin: 0;
 }
-.md-toolbar-tools h1, .md-toolbar-tools h2, .md-toolbar-tools h3 {
+section.ut-panel .md-toolbar-tools h1, section.ut-panel .md-toolbar-tools h2, section.ut-panel .md-toolbar-tools h3 {
 	color: #616161;
 }
 
 /* }}} */
+
+.ut-logo-icon { height: 40px; width: 40px; margin: 0; }
+.ut-logotype { height: 40px; text-indent: 15px; padding-top: 10px; }
 
 .ut-container {
 	padding: 16px;

@@ -6,7 +6,8 @@
 .text-center { text-align: center; }
 .text-red { color: red; }
 .text-green { color: green; }
-.text.blue { color: blue; }
+.text-blue { color: blue; }
+.text-white { color: white; }
 .text-bold { font-weight: bold; }
 .text-normal { font-weight: normal; }
 .text-overflow-ellipsis { text-overflow: ellipsis; }

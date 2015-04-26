@@ -36,48 +36,61 @@
 	<script src="app/directives/menu-link.js"></script>
 	<script src="app/directives/menu-toggle.js"></script>
 </head>
-<body layout="column">
-	<md-toolbar layout="row">
-		<md-button class="menu" hide-gt-sm ng-click="toggleSidenav('left')" ng-cloak>
-			<i class="fa fa-bars fa-fw"></i>
-			<span class="visually-hidden">Menu</span>
-		</md-button>
-		<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
-			<a ng-if="menu.currentSection && menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
-				{{menu.currentSection.name + ($route.current.title ? ' > ' + $route.current.title : 'Utilitron')}}
-			</a>
-			<a ng-if="!menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
-				{{$route.current.title ? $route.current.title : 'Utilitron'}}
-			</a>
-		</h1>
-	</md-toolbar>
+<body layout="row">
+	<md-sidenav layout="column" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+		<md-toolbar layout="row">
+			<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
+				<a href="#/" layout="row" flex class="ut-logo">
+					<img class="ut-logo-icon" src="img/favicon.png"/>
+					<div class="ut-logotype">Utilitron</div>
+				</a>
+			</h1>
+		</md-toolbar>
 
-	<div layout="row" flex>
-		<md-sidenav layout="column" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-			<md-content flex role="navigation">
-				<md-list class="ut-menu">
-					<md-list-item ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}">
-						<h2 class="menu-heading md-subhead" ng-if="section-type === 'heading'" id="heading_{{ section.name }}">
-							{{section.name}}
-						</h2>
+		<md-content flex role="navigation">
+			<md-list class="ut-menu">
+				<md-list-item ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}">
+					<h2 class="menu-heading md-subhead" ng-if="section-type === 'heading'" id="heading_{{ section.name }}">
+						{{section.name}}
+					</h2>
 
-						<menu-link section="section" ng-if="section.type === 'link'"></menu-link>
-						<menu-toggle section="section" ng-if="section.type === 'toggle'"></menu-toggle>
+					<menu-link section="section" ng-if="section.type === 'link'"></menu-link>
+					<menu-toggle section="section" ng-if="section.type === 'toggle'"></menu-toggle>
 
-						<ul ng-if="section.children" class="menu-nested-list">
-							<li ng-repeat="child in section.children" ng-class="{'childActive' : isSectionSelected(child)}">
-								<menu-link section="child" ng-if="child.type === 'link'"></menu-link>
-								<menu-toggle section="child" ng-if="child-type === 'toggle'"></menu-toggle>
-							</li>
-						</ul>
-					</md-list-item>
-				</md-list>
-			</md-content>
-		</md-sidenav>
+					<ul ng-if="section.children" class="menu-nested-list">
+						<li ng-repeat="child in section.children" ng-class="{'childActive' : isSectionSelected(child)}">
+							<menu-link section="child" ng-if="child.type === 'link'"></menu-link>
+							<menu-toggle section="child" ng-if="child-type === 'toggle'"></menu-toggle>
+						</li>
+					</ul>
+				</md-list-item>
+			</md-list>
+		</md-content>
+	</md-sidenav>
 
-		<div id="content" role="main" layout="column" flex tabIndex="-1">
-			<md-content ng-view md-scroll-y flex layout-padding layout-margin></md-content>
-		</div>
+	<div id="content" role="main" layout="column" flex tabIndex="-1">
+		<md-toolbar>
+			<div class="md-toolbar-tools" ng-click="openMenu()" tabIndex="-1">
+				<md-button class="menu" hide-gt-sm aria-label="Toggle Menu">
+					<i class="fa fa-bars fa-fw"></i>
+					<span class="visually-hidden">Menu</span>
+				</md-button>
+				<div layout="row" flex class="fill-height">
+					<h2 class="md-toolbar-tools md-breadcrumb text-white" layout-align-="left">
+						<a ng-if="menu.currentSection && menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
+							{{menu.currentSection.name + ($route.current.title ? ' > ' + $route.current.title : '')}}
+						</a>
+						<a ng-if="!menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
+							{{$route.current.title ? $route.current.title : ''}}
+							<span ng-if="!$route.current.title" hide-gt-sm>Utilitron</span>
+						</a>
+					</h2>
+				</div>
+			</div>
+		</md-toolbar>
+
+		<md-content ng-view md-scroll-y flex layout-padding layout-margin></md-content>
+
 	</div>
 </body>
 </html>
