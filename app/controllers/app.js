@@ -11,8 +11,22 @@ app.controller('AppController', [
 function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $rootScope, $log) {
 	var self = this;
 
-	$scope.SITE_ROOT = 'http://theservergod.github.io/Utilitron/'; // FIXME - Add this as a proper constant
-	//$scope.SITE_ROOT = '/'; // Uncomment to use development base URI
+	/* Disabled for future implementation - 2015-04-26
+	// Attempt to pull in localStorage data if any
+	self.localData = localStorage.length ? JSON.parse(localStorage) : null;
+
+	// Development mode - for easier switching of <base> element in index {{{
+	$scope.SHOW_DEV_SETTINGS = true; // Show development settings in the UI
+	$scope.DEV_MODE = (self.localData && self.localData.settings.devMode) ? !!self.localData.settings.devMode : false;
+	*/
+
+	$scope.DEV_MODE = true;
+
+	if (!$scope.DEV_MODE)
+		$scope.SITE_ROOT = 'http://theservergod.github.io/Utilitron/'; // FIXME - Add this as a proper constant
+	else
+		$scope.SITE_ROOT = '/'; // development base URI
+	// }}}
 
 	// Expose $route var to app and child controllers - used mainly for $route.current
 	$scope.$route = $route;
