@@ -1,8 +1,14 @@
+<script>
+  // JS - Added this in order to load timezone data http://momentjs.com/timezone/docs/#/data-loading/
+  $.getJSON('bower_components/moment-timezone/data/packed/latest.json').then(function (data) {
+    moment.tz.load(data);
+  });
+</script>
 <script src="js/moment-timezone-map.js"></script>
 
-<section flex layout="column">
-  <div class="map">
-    <h3 class="map-label">
+<section>
+  <div class="map" flex layout="column">
+    <h3 class="map-label" layout-sm="column" layout-md="column">
       <span class="map-label-name"></span>
       <span class="map-label-time"></span>
     </h3>

@@ -17,7 +17,6 @@
 	<!-- Moment JS -->
 	<script src="bower_components/momentjs/min/moment.min.js"></script>
 	<script src="bower_components/moment-timezone/builds/moment-timezone.min.js"></script>
-	<script src="bower_components/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
 
 	<!-- AngularJS -->
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
@@ -75,9 +74,9 @@
 
 	<div id="content" role="main" layout="column" flex tabIndex="-1">
 		<md-toolbar>
-			<div class="md-toolbar-tools" ng-click="openMenu()" tabIndex="-1">
+			<div class="md-toolbar-tools" ng-click="toggleMenu()" tabIndex="-1">
 				<md-button class="menu" hide-gt-sm aria-label="Toggle Menu">
-					<i class="fa fa-bars fa-fw"></i>
+					<i class="fa fa-bars fa-fw fa-lg"></i>
 					<span class="visually-hidden">Menu</span>
 				</md-button>
 				<div layout="row" flex class="fill-height">

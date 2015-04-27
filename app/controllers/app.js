@@ -20,7 +20,7 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 	$scope.DEV_MODE = (self.localData && self.localData.settings.devMode) ? !!self.localData.settings.devMode : false;
 	*/
 
-	$scope.DEV_MODE = false;
+	$scope.DEV_MODE = true;
 
 	if (!$scope.DEV_MODE)
 		$scope.SITE_ROOT = 'http://theservergod.github.io/Utilitron/'; // FIXME - Add this as a proper constant
@@ -36,6 +36,7 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 	$scope.path = path;
 	$scope.goHome = goHome;
 	$scope.openMenu = openMenu;
+	$scope.toggleMenu = toggleMenu;
 	$scope.closeMenu = closeMenu;
 	$scope.isSectionSelected = isSectionSelected;
 	$rootScope.$on('$locationChangeSuccess', openPage);
@@ -87,6 +88,10 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 
 	function openMenu() {
 	  $timeout(function() { $mdSidenav('left').open(); });
+	}
+
+	function toggleMenu() {
+		$timeout(function() { $mdSidenav('left').toggle(); });
 	}
 
 	function path() {
