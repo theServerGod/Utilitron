@@ -91,9 +91,7 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 	}
 
 	function toggleMenu() {
-		// FIXME - Menu doesn't stay open on click when on mobile devices - suspect $timeout as culprit
-		//$timeout(function() { $mdSidenav('left').toggle(); });
-		$mdSidenav('left').toggle();
+		$timeout(function() { $mdSidenav('left').toggle(); });
 	}
 
 	function path() {
