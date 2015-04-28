@@ -25,6 +25,7 @@
 	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+	<script src="bower_components/angular-touch/angular-touch.min.js"></script>
 	<script src="bower_components/angular-material/angular-material.min.js"></script>
 
 	<!-- Site CSS -->
@@ -72,9 +73,9 @@
 		</md-content>
 	</md-sidenav>
 
-	<div id="content" role="main" layout="column" flex ng-click="toggleMenu()" tabIndex="-1">
+	<div id="content" role="main" layout="column" flex tabIndex="-1">
 		<md-toolbar>
-			<div class="md-toolbar-tools" tabIndex="-1">
+			<div class="md-toolbar-tools" tabIndex="-1" ng-click="openMenu()">
 				<md-button class="menu" hide-gt-sm aria-label="Toggle Menu">
 					<i class="fa fa-bars fa-fw fa-lg"></i>
 					<span class="visually-hidden">Menu</span>

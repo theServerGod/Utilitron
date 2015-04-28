@@ -3,3 +3,4 @@
 
 	**Workaround is to long-press options in the sidenav under angular material $mdSidenav component**
 
+	*$mdSidenav fixed by including ngTouch module into app. However, toggle sub-menus still not fixed.*
