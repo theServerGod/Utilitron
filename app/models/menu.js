@@ -28,6 +28,16 @@ function($location, $rootScope) {
       type: 'link',
       icon: 'fa fa-fw fa-globe'
     }]
+  },
+  {
+    name: 'Unit Conversion',
+    url: '#/unit-conversion',
+    type: 'link'
+  },
+  {
+    name: 'Calculator',
+    url: '#/calculator',
+    type: 'link'
   }];
 
   var self;

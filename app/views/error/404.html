@@ -1,17 +1,22 @@
 <section flex layout="column">
-  <section class="ut-panel md-whiteframe-z1">
-    <md-toolbar class="ut-toolbar">
-      <div class="md-toolbar-tools" layout-align="center center">
+  <md-card>
+    <md-toolbar class="md-warn md-hue-1">
+      <div class="md-toolbar-tools text-white" layout-align="center center">
         <h3>Page Not Found</h3>
       </div>
     </md-toolbar>
-    <div class="ut-content" layout="column" layout-align="center center">
+    <md-card-content flex layout-align="center center">
       <h2>Oh no!</h2>
       <p>The page you requested does not appear to exist!</p>
-
-      <p>It may not yet have been created or the page request may be wrong. Either way, let's go back home.</p>
-
-      <p><md-button class="md-primary" ng-href="/#/" ng-click="focusSection()">Home</md-button></p>
-    </div>
-  </section>
+      <p>
+        It may not yet have been created or the page request may be wrong.
+        Either way, let's go back home.
+      </p>
+      <div class="md-actions" layout="row" layout-align="center center">
+        <md-button class="md-primary" ng-href="#/" ng-click="focusSection()">
+          Home
+        </md-button>
+      </div>
+    </md-card-content>
+  </md-card>
 </section>

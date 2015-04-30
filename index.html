@@ -45,7 +45,7 @@
 	<md-sidenav layout="column" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
 		<md-toolbar layout="row">
 			<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
-				<a href="#/" layout="row" flex class="ut-logo">
+				<a ng-click="goHome()" layout="row" flex class="ut-logo cursor-pointer">
 					<img class="ut-logo-icon" src="img/favicon.png"/>
 					<div class="ut-logotype">Utilitron</div>
 				</a>
@@ -82,13 +82,13 @@
 				</md-button>
 				<div layout="row" flex class="fill-height">
 					<h2 class="md-toolbar-tools md-breadcrumb text-white" layout-align-="left">
-						<a ng-if="menu.currentSection && menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
+						<span ng-if="menu.currentSection && menu.currentSection.pages" ng-cloak>
 							{{menu.currentSection.name + ($route.current.title ? ' > ' + $route.current.title : '')}}
-						</a>
-						<a ng-if="!menu.currentSection.pages" ng-href="#/" ng-click="focusSection()" ng-cloak>
+						</span>
+						<span ng-if="!menu.currentSection.pages" ng-cloak>
 							{{$route.current.title ? $route.current.title : ''}}
 							<span ng-if="!$route.current.title" hide-gt-sm>Utilitron</span>
-						</a>
+						</span>
 					</h2>
 				</div>
 			</div>

@@ -28,6 +28,10 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 		$scope.SITE_ROOT = '/'; // development base URI
 	// }}}
 
+	// FIXME - Quick and dirty fix for jQuery/ngMaterial issue with $mdSidenav functionality
+	//if ($location.path() !== '/timedate/timezone')
+	window.jQuery = null;
+
 	// Expose $route var to app and child controllers - used mainly for $route.current
 	$scope.$route = $route;
 	$scope.menu = menu;
