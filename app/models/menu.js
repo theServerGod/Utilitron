@@ -31,7 +31,7 @@ function($location, $rootScope) {
   },
   {
     name: 'Unit Conversion',
-    url: '#/unit-conversion',
+    url: '#/unitconversion',
     type: 'link'
   },
   {

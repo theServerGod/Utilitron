@@ -32,6 +32,11 @@ function($routeProvider, $mdThemingProvider) {
 			templateUrl: 'app/views/timedate/timezone.html',
 			controller: 'TimezoneController',
 			title: 'Timezone Finder'
+		})
+		.when('/unitconversion', {
+			templateUrl: 'app/views/unit-conversion.html',
+			controller: 'UnitConversionController',
+			title: 'Unit Conversion'
 		});
 
 		// Error pages {{{

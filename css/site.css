@@ -53,8 +53,7 @@ section.ut-panel .md-toolbar-tools h1, section.ut-panel .md-toolbar-tools h2, se
 }
 
 .ut-content {
-	padding: 8px;
-	width: 100%;
+	max-width: 1170px;
 }
 
 .ut-toolbar {
