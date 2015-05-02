@@ -38,6 +38,22 @@ function($location, $rootScope) {
     name: 'Calculator',
     url: '#/calculator',
     type: 'link'
+  },
+  {
+    name: 'Language',
+    type: 'toggle',
+    pages: [{
+      name: 'Dictionary',
+      url: '#/language/dictionary',
+      type: 'link',
+      icon: 'fa fa-fw fa-book'
+    },
+    {
+      name: 'Grammar Reference',
+      url: '#/language/grammar',
+      type: 'link',
+      icon: 'fa fa-fw fa-user'
+    }]
   }];
 
   var self;

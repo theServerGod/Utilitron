@@ -20,7 +20,7 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 	$scope.DEV_MODE = (self.localData && self.localData.settings.devMode) ? !!self.localData.settings.devMode : false;
 	*/
 
-	$scope.DEV_MODE = false;
+	$scope.DEV_MODE = true;
 
 	if (!$scope.DEV_MODE)
 		$scope.SITE_ROOT = 'http://theservergod.github.io/Utilitron/'; // FIXME - Add this as a proper constant
