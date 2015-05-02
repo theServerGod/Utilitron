@@ -3,11 +3,6 @@ app.factory('menu', [
   '$rootScope',
 function($location, $rootScope) {
   var sections = [{
-    name: 'Getting Started',
-    url: '#/getting-started',
-    type: 'link'
-  },
-  {
     name: 'Time/Date',
     type: 'toggle',
     pages: [{

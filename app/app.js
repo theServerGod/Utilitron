@@ -37,6 +37,18 @@ function($routeProvider, $mdThemingProvider) {
 			templateUrl: 'app/views/unit-conversion.html',
 			controller: 'UnitConversionController',
 			title: 'Unit Conversion'
+		})
+		.when('/calculator', {
+			templateUrl: 'app/views/calculator.html',
+			title: 'Calculator'
+		})
+		.when('/language/dictionary', {
+			templateUrl: 'app/views/language/dictionary.html',
+			title: 'Dictionary'
+		})
+		.when('/language/grammar', {
+			templateUrl: 'app/views/language/grammar.html',
+			title: 'Grammar Reference'
 		});
 
 		// Error pages {{{
