@@ -63,6 +63,8 @@ section.ut-panel .md-toolbar-tools h1, section.ut-panel .md-toolbar-tools h2, se
 	box-shadow: 0 0;
 }
 
+.ut-error { color: red; font-size: 10pt; }
+
 /* Sidenav area */
 /* UT Menu */
 .ut-menu .md-button {

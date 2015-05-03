@@ -1,3 +1,5 @@
+<script src="bower_components/unit-converter-js/unit-converter.js"></script>
+
 <section class="ut-content" flex layout="column">
   <form name="unitConversionForm">
     <div layout layout-sm="column">
@@ -6,9 +8,13 @@
         <input type="number" name="fromValue" ng-model="from.value" class="md-input">
       </md-input-container>
       <md-input-container>
-        <md-select ng-model="from.unit" md-on-open="loadUnits()" required>
+        <md-select ng-model="from.unit" placeholder="Select Unit" required>
           <md-select-label>{{ from.unit ? from.unit.symbol : 'Select unit' }}</md-select-label>
-          <md-option ng-value="unit" ng-repeat="unit in units">{{unit.symbol}}</md-option>
+          <md-optgroup label="{{t.type}}" ng-repeat="t in types">
+            <md-option ng-value="unit" ng-repeat="unit in units | filter:{type: t.type}">
+              {{unit.name}}
+            </md-option>
+          </md-optgroup>
         </md-select>
       </md-input-container>
       <md-input-container>
@@ -16,11 +22,18 @@
         <input type="number" name="toValue" ng-model="to.value" class="md-input">
       </md-input-container>
       <md-input-container>
-        <md-select ng-model="to.unit" md-on-open="loadUnits()" required>
+        <md-select ng-model="to.unit" placeholder="Select Unit" required>
           <md-select-label>{{ to.unit ? to.unit.symbol : 'Select unit' }}</md-select-label>
-          <md-option ng-value="unit" ng-repeat="unit in units">{{unit.symbol}}</md-option>
+          <md-optgroup label="{{t.type}}" ng-repeat="t in types">
+            <md-option ng-value="unit" ng-repeat="unit in units | filter:{type: t.type}">
+              {{unit.name}}
+            </md-option>
+          </md-optgroup>
         </md-select>
       </md-input-container>
+    </div>
+    <div class="ut-error" ng-if="unitConversionForm.$error.incompat">
+      <span class="md-warn md-caption">{{unitConversionForm.$error.incompat}}</span>
     </div>
   </form>
 </section>
