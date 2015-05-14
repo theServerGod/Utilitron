@@ -1,0 +1,5 @@
+config/private.js
+node_modules/
+data/
+*/.DS_Store
+.DS_Store

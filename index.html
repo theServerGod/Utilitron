@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1">
 	<base ng-href="{{SITE_ROOT}}">
-	<link rel="icon" sizes="128x128" type="image/png" href="img/favicon.png">
+	<link rel="icon" sizes="128x128" type="image/png" href="public/img/favicon.png">
 
 	<title ng-bind="$route.current.title ? 'Utilitron | ' + $route.current.title : 'Utilitron'"></title>
 
@@ -15,8 +15,11 @@
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
 
 	<!-- Site CSS -->
-	<link rel="stylesheet" href="css/site.css">
-	<link rel="stylesheet" href="css/utility.css">
+	<link rel="stylesheet" href="build/site.min.css">
+	<!--
+	<link rel="stylesheet" href="public/css/site.css">
+	<link rel="stylesheet" href="public/css/utility.css">
+	-->
 
 </head>
 <body layout="row">
@@ -24,7 +27,7 @@
 		<md-toolbar layout="row">
 			<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
 				<a ng-click="goHome()" layout="row" flex class="ut-logo cursor-pointer">
-					<img class="ut-logo-icon" src="img/favicon.png"/>
+					<img class="ut-logo-icon" src="public/img/favicon.png"/>
 					<div class="ut-logotype">Utilitron</div>
 				</a>
 			</h1>
@@ -97,6 +100,8 @@
 	<script src="bower_components/angular-material/angular-material.min.js"></script>
 
 	<!-- Site NG -->
+	<script src="build/site.min.js"></script>
+	<!--
 	<script src="app/app.js"></script>
 	<script src="app/routes.js"></script>
 	<script src="app/models/menu.js"></script>
@@ -107,6 +112,7 @@
 	<script src="app/controllers/unit-conversion.js"></script>
 	<script src="app/directives/menu-link.js"></script>
 	<script src="app/directives/menu-toggle.js"></script>
+	-->
 
 	<!-- }}} -->
 </body>

@@ -116,7 +116,7 @@ section.ut-panel .md-toolbar-tools h1, section.ut-panel .md-toolbar-tools h2, se
 }
 .md-button-toggle .md-toggle-icon md-icon {
 	/* Needed if using font-awesome as icon */
-	margin-top: 10px;
+	/*margin-top: 10px;*/
 	color: grey;
 }
 .md-button-toggle .md-toggle-icon {
@@ -156,12 +156,12 @@ md-list .md-button {
 
 /* Time/Date > Timezone Finder > Map {{{ */
 .map { margin:0 auto; max-width:1024px; padding:40px; }
-.map-wrap { background:#4e7cad url(../img/timedate/bg.png); padding:1px; border-radius:3px; position:relative; }
+.map-wrap { background:#4e7cad url(../public/img/timedate/bg.png); padding:1px; border-radius:3px; position:relative; }
 .map-label { line-height:60px; font-size:24px; margin:0; color:#4e7cad; font-family:monospace; }
 .map-label span { display:block;}
 .map-label .map-label-name{ float:left; width:50%; padding-right:10px; text-align:right; }
 .map-label .map-label-time{ margin-left:50%; padding-left:10px; text-align:left; }
-.map-inset { padding-bottom:50%; background:url(../img/timedate/world.png) 50% 50%; -webkit-background-size:cover; background-size:cover; position:relative; border-radius:2px; }
+.map-inset { padding-bottom:50%; background:url(../public/img/timedate/world.png) 50% 50%; -webkit-background-size:cover; background-size:cover; position:relative; border-radius:2px; }
 .map-inset span { width:6px; height:6px; margin:-3px 0 0 -3px; background:#fff; position:absolute; border-radius:3px; border:1px solid #4e7cad; }
 .map-inset span.active { background:#4e7cad; }
 .map-inset .map-axis-x { position:absolute; top:0; bottom:0; border-left:1px solid rgba(78, 124, 173, 0.5); width:0; -webkit-transition:left 50ms ease-out; transition:left 50ms ease-out; }
