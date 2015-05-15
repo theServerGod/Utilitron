@@ -28,7 +28,7 @@
 			<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
 				<a ng-click="goHome()" layout="row" flex class="ut-logo cursor-pointer">
 					<img class="ut-logo-icon" src="public/img/favicon.png"/>
-					<div class="ut-logotype">Utilitron</div>
+					<div class="ut-logotype">Utilitron<sup>&#060;BETA&#062;</sup></div>
 				</a>
 			</h1>
 		</md-toolbar>
@@ -56,12 +56,13 @@
 
 	<div id="content" role="main" layout="column" flex tabIndex="-1">
 		<md-toolbar>
-			<div class="md-toolbar-tools" tabIndex="-1" ng-click="openMenu()">
-				<md-button class="menu" hide-gt-sm aria-label="Toggle Menu">
+			<div class="md-toolbar-tools" tabIndex="-1">
+				<md-button class="menu" hide-gt-sm aria-label="Toggle Menu" ng-click="openMenu()">
 					<i class="fa fa-bars fa-fw fa-lg"></i>
 					<span class="visually-hidden">Menu</span>
 				</md-button>
-				<div layout="row" flex class="fill-height">
+
+				<div layout="row" flex class="fill-height" ng-click="openMenu()">
 					<h2 class="md-toolbar-tools md-breadcrumb text-white" layout-align-="left">
 						<span ng-if="menu.currentSection && menu.currentSection.pages" ng-cloak>
 							{{menu.currentSection.name + ($route.current.title ? ' > ' + $route.current.title : '')}}
@@ -72,6 +73,11 @@
 						</span>
 					</h2>
 				</div>
+
+				<md-button class="ut-settings-menu" aria-label="Toggle Settings" ng-click="showSettingsDialog($event)">
+					<i class="fa fa-ellipsis-v fa-lg"></i>
+					<span class="visually-hidden">Settings</span>
+				</md-button>
 			</div>
 		</md-toolbar>
 

@@ -47,7 +47,7 @@ function($location, $rootScope) {
       name: 'Grammar Reference',
       url: '#/language/grammar',
       type: 'link',
-      icon: 'fa fa-fw fa-user'
+      icon: 'fa fa-fw fa-info-circle'
     }]
   }];
 

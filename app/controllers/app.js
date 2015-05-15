@@ -9,8 +9,10 @@ app.controller('AppController', [
 	'$rootScope',
 	'$log',
 	'$window',
+	'$mdToast',
+	'$animate',
 	'$anchorScroll',
-function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $rootScope, $log, $window, $anchorScroll) {
+function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $rootScope, $log, $window, $mdToast, $animate, $anchorScroll) {
 	var self = this;
 
 	/* Disabled for future implementation - 2015-04-26
@@ -150,5 +152,53 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 			$anchorScroll();
 		}
 	};
+
+	$scope.showSettingsDialog = function($event) {
+	    // Appending dialog to document.body to cover sidenav in docs app
+	    // Modal dialogs should fully cover application
+	    // to prevent interaction outside of dialog
+			var parentEl = angular.element(document.body);
+	    $mdDialog.show({
+				parent: parentEl,
+				targetEvent: $event,
+				template:
+					'<md-dialog aria-label="List dialog">' +
+					'	<md-dialog-content layout-padding>' +
+					'		<md-subheader class="md-primary"><h2><i class="fa fa-cog"></i> Settings</h2></md-subheader>' +
+					'		<md-divider></md-divider>' +
+					'		<md-content>' +
+					'			<md-button class="md-warn" ng-click="clearLocalStorage()"><i class="fa fa-trash"></i> Clear Local Settings</md-button>' +
+					'		</md-content>' +
+					'		<md-divider></md-divider>' +
+					'  </md-dialog-content>' +
+					' <div class="md-actions">' +
+					'    <md-button ng-click="closeDialog()" class="md-primary">' +
+					'      Close' +
+					'    </md-button>' +
+					'  </div>' +
+					'</md-dialog>',
+				locals: {
+					items: $scope.items
+				},
+				controller: SettingsDialogController
+	    });
+			function SettingsDialogController(scope, $mdDialog, items) {
+				scope.items = items;
+				scope.closeDialog = function() {
+					$mdDialog.hide();
+				}
+
+				scope.clearLocalStorage = function() {
+					localStorage.clear();
+					// Show toast
+					$mdToast.show(
+			      $mdToast.simple()
+			        .content('Your settings have been cleared')
+			        .position('top right')
+			        .hideDelay(3000)
+			    );
+				}
+			}
+	  };
 
 }]);
