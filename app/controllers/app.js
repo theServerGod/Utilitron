@@ -8,7 +8,9 @@ app.controller('AppController', [
 	'$route',
 	'$rootScope',
 	'$log',
-function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $rootScope, $log) {
+	'$window',
+	'$anchorScroll',
+function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $rootScope, $log, $window, $anchorScroll) {
 	var self = this;
 
 	/* Disabled for future implementation - 2015-04-26
@@ -134,6 +136,19 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 		// set flag to be used later when
 		// $locationChangeSuccess calls openPage()
 		self.autoFocusContent = true;
+	};
+
+	$scope.gotoAnchor = function(x) {
+		var newHash = 'anchor-' + x;
+		if ($location.hash() !== newHash) {
+			// set the $location.hash to `newHash` and
+			// $anchorScroll will automatically scroll to it
+			$location.hash('anchor-' + x);
+		} else {
+			// call $anchorScroll() explicitly,
+			// since $location.hash hasn't changed
+			$anchorScroll();
+		}
 	};
 
 }]);

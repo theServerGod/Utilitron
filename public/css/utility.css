@@ -8,6 +8,7 @@
 .text-green { color: green; }
 .text-blue { color: blue; }
 .text-white { color: white; }
+.text-gray, .text-grey { color: gray; }
 .text-bold { font-weight: bold; }
 .text-normal { font-weight: normal; }
 .text-overflow-ellipsis { text-overflow: ellipsis; }
@@ -15,6 +16,7 @@
 .bg-red { background-color: red; }
 .bg-green { background-color: green; }
 .bg-blue { background-color: blue; }
+.bg-gray, .bg-grey { background-color: rgb(210, 210, 210); }
 
 .pull-left { float: left; }
 .pull-right { float: right; }

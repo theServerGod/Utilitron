@@ -37,10 +37,12 @@ function($routeProvider, $mdThemingProvider) {
 		})
 		.when('/language/dictionary', {
 			templateUrl: 'app/views/language/dictionary.html',
+			controller: 'DictionaryController',
 			title: 'Dictionary'
 		})
 		.when('/language/grammar', {
 			templateUrl: 'app/views/language/grammar.html',
+			controller: 'GrammarController',
 			title: 'Grammar Reference'
 		});
 
