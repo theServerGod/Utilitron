@@ -12,6 +12,7 @@
 .text-bold { font-weight: bold; }
 .text-normal { font-weight: normal; }
 .text-overflow-ellipsis { text-overflow: ellipsis; }
+.text-transform-initial { text-transform: initial; }
 
 .bg-red { background-color: red; }
 .bg-green { background-color: green; }

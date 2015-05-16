@@ -161,22 +161,7 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 	    $mdDialog.show({
 				parent: parentEl,
 				targetEvent: $event,
-				template:
-					'<md-dialog aria-label="List dialog">' +
-					'	<md-dialog-content layout-padding>' +
-					'		<md-subheader class="md-primary"><h2><i class="fa fa-cog"></i> Settings</h2></md-subheader>' +
-					'		<md-divider></md-divider>' +
-					'		<md-content>' +
-					'			<md-button class="md-warn" ng-click="clearLocalStorage()"><i class="fa fa-trash"></i> Clear Local Settings</md-button>' +
-					'		</md-content>' +
-					'		<md-divider></md-divider>' +
-					'  </md-dialog-content>' +
-					' <div class="md-actions">' +
-					'    <md-button ng-click="closeDialog()" class="md-primary">' +
-					'      Close' +
-					'    </md-button>' +
-					'  </div>' +
-					'</md-dialog>',
+				templateUrl: 'app/partials/settings-menu.tmpl.html',
 				locals: {
 					items: $scope.items
 				},
