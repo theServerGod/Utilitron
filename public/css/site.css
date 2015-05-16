@@ -68,6 +68,8 @@ section.ut-panel .md-toolbar-tools h1, section.ut-panel .md-toolbar-tools h2, se
 	box-shadow: 0 0;
 }
 
+.ut-divider { margin: 10px 0px; }
+
 .ut-error { color: red; font-size: 10pt; }
 
 .ut-settings-menu { min-width: 40px; }
@@ -168,6 +170,11 @@ md-list .md-button {
 
 /* Math-related symbols and styling */
 md-input-container.ut-math-operator { margin-top: 24px; }
+
+/* Stopwatch {{{ */
+.stopwatch-time h1 { margin-bottom: 0; }
+.stopwatch-time { margin-bottom: 20px; }
+/* }}} */
 
 /* Time/Date > Timezone Finder > Map {{{ */
 .map { margin:0 auto; max-width:1024px; padding:40px; }

@@ -1,0 +1,23 @@
+<section class="ut-content" flex layout="column">
+  <div class="stopwatch" layout="column" layout-align="center center">
+    <div class="stopwatch-time">
+      <h1 class="text-center">{{time}}</h1>
+      <div>seconds</div>
+    </div>
+    <div class="stopwatch-controls">
+      <md-button class="md-primary" ng-click="start()"><i class="fa fa-fw fa-play"></i> Start</md-button>
+      <md-button class="md-warn" ng-click="stop()"><i class="fa fa-fw fa-stop"></i> Stop</md-button>
+      <md-button class="md-accent" ng-click="reset()"><i class="fa fa-fw fa-refresh"></i> Reset</md-button>
+      <md-button ng-click="lap(time)"><i class="fa fa-fw fa-plus-square"></i> Lap</md-button>
+    </div>
+  </div>
+
+  <md-divider class="ut-divider"></md-divider>
+
+  <div class="ut-section">
+    <md-subheader>Lapped Times</md-subheader>
+    <md-list layout="column">
+      <md-list-item ng-repeat="t in lappedTimes track by $index"><small class="text-grey">{{$index+1}}.</small> {{t}}</md-list-item>
+    </md-list>
+  </div>
+</section>

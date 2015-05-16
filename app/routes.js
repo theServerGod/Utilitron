@@ -26,6 +26,16 @@ function($routeProvider, $mdThemingProvider) {
 			controller: 'TimezoneController',
 			title: 'Timezone Finder'
 		})
+		.when('/timedate/calendar', {
+			templateUrl: 'app/views/timedate/calendar.html',
+			controller: 'CalendarController',
+			title: 'Calendar'
+		})
+		.when('/timedate/stopwatch', {
+			templateUrl: 'app/views/timedate/stopwatch.html',
+			controller: 'StopwatchController',
+			title: 'Stopwatch'
+		})
 		.when('/unitconversion', {
 			templateUrl: 'app/views/unit-conversion.html',
 			controller: 'UnitConversionController',

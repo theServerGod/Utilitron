@@ -28,6 +28,12 @@ function($location, $rootScope) {
       url: '#/timedate/calendar',
       type: 'link',
       icon: 'fa fa-fw fa-calendar'
+    },
+    {
+      name: 'Stopwatch',
+      url: '#/timedate/stopwatch',
+      type: 'link',
+      icon: 'fa fa-fw fa-stop'
     }]
   },
   {

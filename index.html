@@ -16,11 +16,6 @@
 
 	<!-- Site CSS -->
 	<link rel="stylesheet" href="build/site.min.css">
-	<!--
-	<link rel="stylesheet" href="public/css/site.css">
-	<link rel="stylesheet" href="public/css/utility.css">
-	-->
-
 </head>
 <body layout="row">
 	<md-sidenav layout="column" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
@@ -33,7 +28,7 @@
 			</h1>
 		</md-toolbar>
 
-		<md-content flex role="navigation">
+		<md-content flex role="navigation" ng-cloak>
 			<md-list class="ut-menu">
 				<md-list-item ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}" ng-cloak>
 					<h2 class="menu-heading md-subhead" ng-if="section-type === 'heading'" id="heading_{{ section.name }}" ng-cloak>
@@ -107,18 +102,6 @@
 
 	<!-- Site NG -->
 	<script src="build/site.min.js"></script>
-	<!--
-	<script src="app/app.js"></script>
-	<script src="app/routes.js"></script>
-	<script src="app/models/menu.js"></script>
-	<script src="app/filters/ngFilters.js"></script>
-	<script src="app/filters/ucwords.js"></script>
-	<script src="app/controllers/app.js"></script>
-	<script src="app/controllers/time-date.js"></script>
-	<script src="app/controllers/unit-conversion.js"></script>
-	<script src="app/directives/menu-link.js"></script>
-	<script src="app/directives/menu-toggle.js"></script>
-	-->
 
 	<!-- }}} -->
 </body>
