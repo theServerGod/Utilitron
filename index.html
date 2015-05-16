@@ -6,7 +6,7 @@
 	<base ng-href="{{SITE_ROOT}}">
 	<link rel="icon" sizes="128x128" type="image/png" href="public/img/favicon.png">
 
-	<title ng-bind="$route.current.title ? 'Utilitron | ' + $route.current.title : 'Utilitron'"></title>
+	<title ng-bind="$route.current.title ? 'Utilitron | ' + $route.current.title : 'Utilitron'" ng-cloak></title>
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
@@ -36,7 +36,7 @@
 		<md-content flex role="navigation">
 			<md-list class="ut-menu">
 				<md-list-item ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}">
-					<h2 class="menu-heading md-subhead" ng-if="section-type === 'heading'" id="heading_{{ section.name }}">
+					<h2 class="menu-heading md-subhead" ng-if="section-type === 'heading'" id="heading_{{ section.name }}" ng-cloak>
 						{{section.name}}
 					</h2>
 

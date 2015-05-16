@@ -15,13 +15,19 @@ function($location, $rootScope) {
       name: 'Date Difference',
       url: '#/timedate/datedifference',
       type: 'link',
-      icon: 'fa fa-fw fa-calendar'
+      icon: 'fa fa-fw fa-calendar-o'
     },
     {
       name: 'Timezone Finder',
       url: '#/timedate/timezone',
       type: 'link',
       icon: 'fa fa-fw fa-globe'
+    },
+    {
+      name: 'Calendar',
+      url: '#/timedate/calendar',
+      type: 'link',
+      icon: 'fa fa-fw fa-calendar'
     }]
   },
   {
