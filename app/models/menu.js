@@ -49,6 +49,16 @@ function($location, $rootScope) {
       type: 'link',
       icon: 'fa fa-fw fa-info-circle'
     }]
+  },
+  {
+    name: 'Astronomy',
+    type: 'toggle',
+    pages: [{
+      name: 'Telescope Calculator',
+      url: '#/astronomy/telescopecalculator',
+      type: 'link',
+      icon: 'fa fa-fw fa-star'
+    }]
   }];
 
   var self;

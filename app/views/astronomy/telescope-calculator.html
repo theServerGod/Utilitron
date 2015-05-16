@@ -1,0 +1,54 @@
+<section class="ut-content" flex layout="column">
+  <div class="ut-section">
+    <md-subheader>Telescope Magnification</md-subheader>
+    <div layout layout-sm="column">
+      <md-input-container flex>
+        <label>Telescope Focal Length (mm)</label>
+        <input type="number" min="0" ng-model="mag.tfl">
+      </md-input-container>
+      <md-input-container class="ut-math-operator text-grey" hide-sm> / </md-input-container>
+      <md-input-container flex>
+        <label>Eyepiece Focal Length (mm)</label>
+        <input type="number" min="0" ng-model="mag.efl">
+      </md-input-container>
+      <md-input-container class="ut-math-operator text-grey" hide-sm> = </md-input-container>
+      <md-input-container flex>
+        <label>Magnification</label>
+        <input type="text" ng-model="mag.magnificationDisplay" readonly>
+      </md-input-container>
+    </div>
+  </div>
+
+  <div class="ut-section">
+    <md-subheader>Focal Ratio</md-subheader>
+    <div layout layout-sm="column">
+      <md-input-container flex>
+        <label>Telescope Focal Length (mm)</label>
+        <input type="number" min="0" ng-model="fr.tfl">
+      </md-input-container>
+      <md-input-container class="ut-math-operator text-grey" hide-sm> / </md-input-container>
+      <md-input-container flex>
+        <label>Aperture (mm)</label>
+        <input type="number" min="0" ng-model="fr.aperture">
+      </md-input-container>
+      <md-input-container class="ut-math-operator text-grey" hide-sm> = </md-input-container>
+      <md-input-container flex>
+        <label>Focal Ratio</label>
+        <input type="text" ng-model="fr.focalRatioDisplay" readonly>
+      </md-input-container>
+    </div>
+  </div>
+
+  <div class="ut-section">
+    <md-subheader>Useful Magnification</md-subheader>
+    <div layout layout-sm="column">
+      <md-input-container flex>
+        <label>Aperture (mm)</label>
+        <input type="number" min="0" ng-model="um.aperture">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Useful Magnification</label>
+        <input type="text" ng-model="um.usefulMagDisplay" readonly>
+      </md-input-container>
+  </div>
+</section>

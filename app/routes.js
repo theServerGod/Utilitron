@@ -44,6 +44,11 @@ function($routeProvider, $mdThemingProvider) {
 			templateUrl: 'app/views/language/grammar.html',
 			controller: 'GrammarController',
 			title: 'Grammar Reference'
+		})
+		.when('/astronomy/telescopecalculator', {
+			templateUrl: 'app/views/astronomy/telescope-calculator.html',
+			controller: 'TelescopeCalculatorController',
+			title: 'Telescope Calculator'
 		});
 
 	// Error pages {{{
