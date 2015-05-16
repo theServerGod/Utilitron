@@ -59,6 +59,11 @@ function($routeProvider, $mdThemingProvider) {
 			templateUrl: 'app/views/astronomy/telescope-calculator.html',
 			controller: 'TelescopeCalculatorController',
 			title: 'Telescope Calculator'
+		})
+		.when('/document/notes', {
+			templateUrl: 'app/views/document/notes.html',
+			controller: 'NotesController',
+			title: 'Notes'
 		});
 
 	// Error pages {{{

@@ -71,6 +71,22 @@ function($location, $rootScope) {
       type: 'link',
       icon: 'fa fa-fw fa-star'
     }]
+  },
+  {
+    name: 'Document',
+    type: 'toggle',
+    pages: [{
+      name: 'Notes',
+      url: '#/document/notes',
+      type: 'link',
+      icon: 'fa fa-fw fa-pencil-square-o'
+    },
+    {
+      name: 'To Do',
+      url: '#/document/todo',
+      type: 'link',
+      icon: 'fa fa-fw fa-tasks'
+    }]
   }];
 
   var self;

@@ -45,14 +45,13 @@ section.ut-panel .md-toolbar-tools h1, section.ut-panel .md-toolbar-tools h2, se
 /* }}} */
 
 /* Utilitron styling {{{ */
-.ut-construction-bg { background-color: gold; }
 
 /* Logo */
 .ut-logo-icon { height: 40px; width: 40px; margin: 0; }
 .ut-logotype { height: 40px; text-indent: 15px; padding-top: 10px; }
 .ut-logotype sup { font-size: 40%; }
 
-/* General UI */
+/* General UI {{{ */
 .ut-container {
 	padding: 16px;
 }
@@ -72,7 +71,18 @@ section.ut-panel .md-toolbar-tools h1, section.ut-panel .md-toolbar-tools h2, se
 
 .ut-error { color: red; font-size: 10pt; }
 
+.ut-construction-bg { background-color: gold; }
 .ut-settings-menu { min-width: 40px; }
+
+
+.ut-hover:hover { background-color: #333; }
+/* }}} */
+
+/* Alert box */
+.ut-alert {
+  background: lightblue;
+  color: #5E5E5E;
+}
 
 /* Sidenav area */
 /* UT Menu */
@@ -175,6 +185,9 @@ md-input-container.ut-math-operator { margin-top: 24px; }
 .stopwatch-time h1 { margin-bottom: 0; }
 .stopwatch-time { margin-bottom: 20px; }
 /* }}} */
+
+/* Note dialog */
+/*.ut-dialog-note { min-width: 300px; }*/
 
 /* Time/Date > Timezone Finder > Map {{{ */
 .map { margin:0 auto; max-width:1024px; padding:40px; }

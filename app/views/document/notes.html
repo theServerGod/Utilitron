@@ -1,0 +1,18 @@
+<section class="ut-content" flex layout="column">
+  <div class="ut-controls" layout layout-align="center center">
+    <md-button class="md-fab" aria-label="New Note" ng-click="open(null)"><i class="fa fa-plus"></i></md-button>
+  </div>
+
+  <md-divider class="ut-divider"></md-divider>
+
+  <md-list ng-show="notes.length">
+    <md-list-item class="md-2-line cursor-pointer ut-hover" ng-click="open($event, note, index)" ng-repeat="(index, note) in notes track by index | orderBy:'date'" ng-class="{'bg-yellow':'yellow', 'ng-grey':'grey'}[note.colour]">
+      <div class="md-list-item-text">
+        <h3>{{note.title}}</h3>
+        <p class="text-overflow-ellipsis">{{note.body}}</p>
+      </div>
+    </md-list-item>
+  </md-list>
+
+  <div ng-show="!notes.length" class="text-grey" layout layout-align="center center">No notes yet</div>
+</section>
