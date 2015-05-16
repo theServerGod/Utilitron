@@ -35,7 +35,7 @@
 
 		<md-content flex role="navigation">
 			<md-list class="ut-menu">
-				<md-list-item ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}">
+				<md-list-item ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}" ng-cloak>
 					<h2 class="menu-heading md-subhead" ng-if="section-type === 'heading'" id="heading_{{ section.name }}" ng-cloak>
 						{{section.name}}
 					</h2>
