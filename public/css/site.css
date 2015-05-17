@@ -74,9 +74,12 @@ section.ut-panel .md-toolbar-tools h1, section.ut-panel .md-toolbar-tools h2, se
 .ut-construction-bg { background-color: gold; }
 .ut-settings-menu { min-width: 40px; }
 
-
-.ut-hover:hover { background-color: #333; }
+.ut-hover { opacity: 1; transition: opacity .3s ease; }
+.ut-hover:hover { opacity: 0.8; }
 /* }}} */
+
+/* Forms */
+.ut-horizontal-form input { width: 100%; }
 
 /* Alert box */
 .ut-alert {

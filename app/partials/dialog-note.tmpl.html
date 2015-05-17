@@ -1,6 +1,6 @@
-<md-dialog class="ut-dialog-note" aria-label="Settings dialog" flex flex-gt-sm="66">
+<md-dialog class="ut-dialog-note" aria-label="Settings dialog" flex flex-gt-md="50">
   <md-dialog-content>
-    <md-content>
+    <md-content ng-class="{yellow: 'bg-yellow-or', grey: 'bg-grey-or', green: 'bg-green-or'}[note.colour]">
       <form layout="column">
         <md-input-container>
           <label>Title</label>
@@ -14,6 +14,12 @@
     </md-content>
   </md-dialog-content>
   <div class="md-actions">
+    <div layout-align="center center">
+      <md-select style="margin-top: 0;" ng-model="note.colour" placeholder="Choose Colour">
+        <md-option value="">No colour</md-option>
+        <md-option ng-repeat="colour in colours" value="{{colour}}"><span ng-class="{yellow: 'text-yellow', grey: 'text-grey', green: 'text-green'}[colour]">{{colour}}</span></md-option>
+      </md-select>
+    </div>
     <md-button ng-click="delete()" ng-show="noteIndex || noteIndex === 0" class="md-warn">
       Delete
     </md-button>

@@ -20,16 +20,18 @@ app.controller('NotesController', function($scope, $timeout, $mdDialog, $mdToast
    * Saves note to current notes array and persists to localStorage
    */
   $scope.save = function(note, noteIndex) {
+    console.log(noteIndex);
     noteIndex = noteIndex || null;
-    if (!noteIndex)
-      $scope.notes.push(note);
+    // Need to check for first index (0) presence as it means an existing note
+    if (!noteIndex && noteIndex !== 0)
+      $scope.notes.push(note); // Create note
 
     saveToLocalStorage();
     showToast('Your note has been saved locally');
   };
 
   $scope.remove = function(index) {
-    delete $scope.notes[index];
+    $scope.notes.splice(index, 1);
     saveToLocalStorage();
     showToast('Note deleted');
   };
@@ -51,6 +53,11 @@ app.controller('NotesController', function($scope, $timeout, $mdDialog, $mdToast
     function NoteDialogController(scope, $mdDialog, note, noteIndex, save, remove) {
       scope.note = note;
       scope.noteIndex = noteIndex;
+      scope.colours = [
+        'yellow',
+        'grey',
+        'green'
+      ];
 
       scope.closeDialog = function() {
         scope.note = {}; // Clear active note object

@@ -6,10 +6,12 @@
   <md-divider class="ut-divider"></md-divider>
 
   <md-list ng-show="notes.length">
-    <md-list-item class="md-2-line cursor-pointer ut-hover" ng-click="open($event, note, index)" ng-repeat="(index, note) in notes track by index | orderBy:'date'" ng-class="{'bg-yellow':'yellow', 'ng-grey':'grey'}[note.colour]">
-      <div class="md-list-item-text">
-        <h3>{{note.title}}</h3>
-        <p class="text-overflow-ellipsis">{{note.body}}</p>
+    <md-list-item layout-margin class="md-2-line cursor-pointer"
+    ng-click="open($event, note, index)"
+    ng-repeat="(index, note) in notes track by index | orderBy:'date'">
+      <div layout-padding class="md-list-item-text ut-hover" ng-class="{yellow: 'bg-yellow', grey: 'bg-grey', green: 'bg-green'}[note.colour]">
+        <p>{{note.title}}</p>
+        <h3 class="text-overflow-ellipsis">{{note.body}}</h3>
       </div>
     </md-list-item>
   </md-list>
