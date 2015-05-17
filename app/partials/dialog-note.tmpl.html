@@ -2,19 +2,19 @@
   <md-dialog-content>
     <md-content ng-class="{yellow: 'bg-yellow-or', grey: 'bg-grey-or', green: 'bg-green-or'}[note.colour]">
       <form layout="column">
-        <md-input-container>
+        <md-input-container flex>
           <label>Title</label>
           <input type="text" ng-model="note.title">
         </md-input-container>
-        <md-input-container>
+        <md-input-container flex>
           <label>Body</label>
-          <textarea ng-model="note.body"></textarea>
+          <textarea ng-model="note.body" columns="1"></textarea>
         </md-input-container>
       </form>
     </md-content>
   </md-dialog-content>
-  <div class="md-actions">
-    <div layout-align="center center">
+  <div class="md-actions" layout-sm="column" layout-wrap flex>
+    <div>
       <md-select style="margin-top: 0;" ng-model="note.colour" placeholder="Choose Colour">
         <md-option value="">No colour</md-option>
         <md-option ng-repeat="colour in colours" value="{{colour}}"><span ng-class="{yellow: 'text-yellow', grey: 'text-grey', green: 'text-green'}[colour]">{{colour}}</span></md-option>
