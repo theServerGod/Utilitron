@@ -4,14 +4,29 @@
       <md-tabs md-border-bottom>
         <md-tab label="settings">
           <md-content>
-            <md-button class="md-warn" ng-click="clearLocalStorage()"><i class="fa fa-trash"></i> Clear Local Settings and Data</md-button>
+            <h4 class="ut-subheader">Clear Local Settings and Data</h4>
+            <md-button class="md-warn" ng-click="clearLocalStorage()"><i class="fa fa-fw fa-trash"></i> Clear Local Storage</md-button>
+            <md-divider></md-divider>
+            <h4 class="ut-subheader">Configuration</h4>
+            <md-button class="md-primary" ng-click="openConfigMenuModal()"><i class="fa fa-fw fa-bars"></i> Configure Menu</md-button>
           </md-content>
         </md-tab>
         <md-tab label="info">
           <md-content>
             <nav layout="column">
+              <h4 class="ut-subheader">Links</h4>
               <md-button class="text-transform-initial" ng-href="#/">Utilitron Home</md-button>
               <md-button class="text-transform-initial" ng-href="#/getting-started">Getting Started</md-button>
+              <md-divider></md-divider>
+              <h4 class="ut-subheader">App Info</h4>
+              <div class="ut-text">
+                <p>Utilitron BETA</p>
+                <small>
+                  <ul class="no-list-style">
+                    Timezone Finder map from <a href="http://momentjs.com/timezone/" target="_blank">Moment Timezone</a>
+                  </ul>
+                </small>
+              </div>
             </nav>
           </md-content>
         </md-tab>
