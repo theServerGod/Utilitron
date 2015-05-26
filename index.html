@@ -8,6 +8,9 @@
 
 	<title ng-bind="$route.current.title ? 'Utilitron | ' + $route.current.title : 'Utilitron'" ng-cloak></title>
 
+	<!-- Normalize -->
+	<link rel="stylesheet" href="public/css/normalize.min.css">
+
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
@@ -32,8 +35,8 @@
 		</md-toolbar>
 
 		<md-content flex role="navigation" ng-cloak>
-			<md-list class="ut-menu">
-				<md-list-item ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}" ng-cloak>
+			<ul class="ut-menu">
+				<li ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}" ng-cloak>
 					<h2 class="menu-heading md-subhead" ng-if="section-type === 'heading'" id="heading_{{ section.name }}" ng-cloak>
 						{{section.name}}
 					</h2>
@@ -47,8 +50,8 @@
 							<menu-toggle section="child" ng-if="child-type === 'toggle'"></menu-toggle>
 						</li>
 					</ul>
-				</md-list-item>
-			</md-list>
+				</li>
+			</ul>
 		</md-content>
 	</md-sidenav>
 
@@ -74,7 +77,7 @@
 
 				<md-button class="ut-settings-menu" aria-label="Toggle Settings" ng-click="showSettingsDialog($event)">
 					<i class="fa fa-ellipsis-v fa-lg"></i>
-					<span class="visually-hidden">Settings</span>
+					<span class="md-visually-hidden">Settings</span>
 				</md-button>
 			</div>
 		</md-toolbar>

@@ -4,13 +4,13 @@
   aria-expanded="{{isOpen()}}">
   <div flex layout="row">
     {{section.name}}
-    <span flex=""></span>
+    <span flex></span>
     <span aria-hidden="true" class="md-toggle-icon"
     ng-class="{'toggled' : isOpen()}">
-      <md-icon class="fa fa-chevron-up fa-fw"></md-icon>
+      <md-icon style="padding-top: 5px;" class="fa fa-chevron-up fa-fw"></md-icon>
     </span>
   </div>
-  <span class="visually-hidden">
+  <span class="md-visually-hidden">
     Toggle {{isOpen()? 'expanded' : 'collapsed'}}
   </span>
 </md-button>
