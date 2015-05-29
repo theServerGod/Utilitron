@@ -1,4 +1,20 @@
-<section class="ut-content" flex layout="column">
-  <h2>Basics</h2>
-  <p>All tools are in the left side navigation bar. Some tools are grouped by category, which is accessible by toggling its sub-menu in the sidebar.</p>
+<section class="col s12 m9 l10 ut-getting-started">
+  <article id="anchor-basics" class="section scrollspy">
+    <h2 class="header">Basics</h2>
+    <p class="flow-text">All tools are in the left side navigation bar. Some tools are grouped by category, which is accessible by toggling its sub-menu in the sidebar.</p>
+  </article>
+  <article id="anchor-data-storage" class="section scrollspy">
+    <h2 class="header">Data Storage</h2>
+    <p class="flow-text">
+      Utilitron uses your browser's local storage to store and retrieve any settings and data you may create.
+      This means that this data is not stored on any server, and therefore only present on the browser you use to access this application with.
+      If you use another browser (i.e. on another device), the settings and data you saved originally (on the other browser) will not be present.
+    </p>
+  </article>
 </section>
+<div class="col hide-on-small-only m3 l2">
+  <ul class="ut-toc section table-of-contents">
+    <li><a ng-click="gotoAnchor('basics')">Basics</a></li>
+    <li><a ng-click="gotoAnchor('data-storage')">Data Storage</a></li>
+  </ul>
+</div>

@@ -1,7 +1,5 @@
 // TimeDifference {{{
-app.controller('TimeDifferenceController', [
-  '$scope',
-function($scope) {
+app.controller('TimeDifferenceController', function($scope) {
   var self = this;
 
   $scope.time = {};
@@ -43,12 +41,10 @@ function($scope) {
 
 
   initTimes();
-}]);
+});
 // }}}
 // DateDifference {{{
-app.controller('DateDifferenceController', [
-  '$scope',
-function($scope) {
+app.controller('DateDifferenceController', function($scope) {
   var self = this;
   $scope.date = {};
 
@@ -76,12 +72,10 @@ function($scope) {
   }, true);
 
   initDates();
-}]);
+});
 // }}}
 // Timezone {{{
-app.controller('TimezoneController', [
-  '$scope',
-function($scope) {
+app.controller('TimezoneController', function($scope) {
 
-}]);
+});
 // }}}

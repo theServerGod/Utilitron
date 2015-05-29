@@ -1,4 +1,4 @@
-app.controller('NotesController', function($scope, $timeout, $mdDialog, $mdToast, $animate) {
+app.controller('NotesController', function($scope, $timeout, $animate) {
   var self = this;
 
   function saveToLocalStorage() {
@@ -7,12 +7,6 @@ app.controller('NotesController', function($scope, $timeout, $mdDialog, $mdToast
 
   function showToast(msg) {
     msg = msg || '';
-    $mdToast.show(
-      $mdToast.simple()
-        .content(msg)
-        .position('top right')
-        .hideDelay(3000)
-    );
   }
 
   $scope.notes = localStorage.notes ? JSON.parse(localStorage.notes) : [];
@@ -37,42 +31,6 @@ app.controller('NotesController', function($scope, $timeout, $mdDialog, $mdToast
   };
 
   $scope.open = function($event, note, noteIndex) {
-    var parentEl = angular.element(document.body);
-    $mdDialog.show({
-      parent: parentEl,
-      targetEvent: $event,
-      templateUrl: 'app/partials/dialog-note.tmpl.html',
-      locals: {
-        note: note || {},
-        noteIndex: noteIndex,
-        save: $scope.save,
-        remove: $scope.remove,
-      },
-      controller: NoteDialogController
-    });
-    function NoteDialogController(scope, $mdDialog, note, noteIndex, save, remove) {
-      scope.note = note;
-      scope.noteIndex = noteIndex;
-      scope.colours = [
-        'yellow',
-        'grey',
-        'green'
-      ];
 
-      scope.closeDialog = function() {
-        scope.note = {}; // Clear active note object
-        $mdDialog.hide();
-      };
-
-      scope.save = function(n) {
-        save(n, noteIndex);
-        scope.closeDialog();
-      };
-
-      scope.delete = function() {
-        remove(noteIndex);
-        scope.closeDialog();
-      };
-    }
   };
 });

@@ -1,196 +1,124 @@
-/*! Utilitron styling */
+/*! Utilitron styling | MIT Licence */
 
-/* Angular Material overrides and additions {{{ */
-.md-body-2, md-list .md-subheader, md-list-item.md-2-line .md-list-item-text h4, md-list-item.md-2-line > .md-no-style .md-list-item-text h4, md-list-item.md-3-line .md-list-item-text h4, md-list-item.md-3-line > .md-no-style .md-list-item-text h4, md-list-item.md-2-line .md-list-item-text p, md-list-item.md-2-line > .md-no-style .md-list-item-text p, md-list-item.md-3-line .md-list-item-text p, md-list-item.md-3-line > .md-no-style .md-list-item-text p {
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    line-height: 2.4rem;
-}
-md-list-item.md-2-line .md-list-item-text p, md-list-item.md-2-line > .md-no-style .md-list-item-text p, md-list-item.md-3-line .md-list-item-text p, md-list-item.md-3-line > .md-no-style .md-list-item-text p {
-    margin: 0px;
-    line-height: 1.6em;
-}
-md-list-item.md-2-line .md-list-item-text h3 {
-	margin-bottom: 0.2em;
-	font-weight: 300;
-	font-size: 90%;
-}
-.md-subheader { padding: 0; }
+/* Materialize Overrides */
+.card.large,
+.card.large .card-image,
+.card.large .card-content { height: auto; }
+.card.large { min-height: 500px; }
+.card.large .card-content { min-height: 170px; }
 
-md-toolbar h1 {
-	font-weight: normal;
+
+/* NG animate */
+.ut-show-hide {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
 }
 
-.md-toolbar-tools {
-	font-weight: 400;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	width: 100%;
-	height: 64px;
-	max-height: 64px;
-	padding: 0 16px;
-	margin: 0;
-}
-section.ut-panel .md-toolbar-tools h1, section.ut-panel .md-toolbar-tools h2, section.ut-panel .md-toolbar-tools h3 {
-	color: #616161;
+.ut-show-hide.ng-hide {
+  opacity:0;
 }
 
-/* }}} */
 
-/* Utilitron styling {{{ */
-
-/* Logo */
-.ut-logo-icon { height: 40px; width: 40px; margin: 0; }
-.ut-logotype { height: 40px; text-indent: 15px; padding-top: 10px; }
-.ut-logotype sup { font-size: 40%; }
-
-/* General UI {{{ */
-.ut-container {
-	padding: 16px;
+/* Create content offset for fixed sidenav */
+header, main, footer {
+  padding-left: 240px;
+}
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
 }
 
-.ut-content {
-	max-width: 1170px;
-}
 
-.ut-toolbar {
-	background: #f2f2f2 !important;
-	color: #616161;
-	border-bottom: 1px solid #e5e5e5;
-	box-shadow: 0 0;
-}
-
-.ut-divider { margin: 10px 0px; }
-
-.ut-error { color: red; font-size: 10pt; }
-
-.ut-construction-bg { background-color: gold; }
-.ut-settings-menu { min-width: 40px; }
-
-.ut-hover { opacity: 1; transition: opacity .3s ease; }
-.ut-hover:hover { opacity: 0.8; }
-/* }}} */
-
-/* Forms */
-.ut-horizontal-form input { width: 100%; }
-
-/* Alert box */
-.ut-alert {
-  background: lightblue;
-  color: #5E5E5E;
-}
-
-/* Sidenav area */
-/* UT Menu */
-.ut-menu .md-button {
-	border-radius: 0;
-	color: inherit;
-	cursor: pointer;
-	display: block;
-	line-height: 40px;
-	margin: 0;
-	max-height: 40px;
-	overflow: hidden;
-	padding: 0px 16px;
-	text-align: left;
-	text-decoration: none;
-	white-space: normal;
-	width: 100%;
-}
-ul.ut-menu { padding-left: 0; }
-.ut-menu li.parentActive,
-.ut-menu li.parentActive .menu-toggle-list,
-.ut-menu md-list-item.parentActive,
-.ut-menu md-list-item.parentActive .menu-toggle-list {
-  background-color: #f6f6f6;
-}
-.menu-toggle-list {
-	margin: 0;
-	padding: 0;
-  background: #fff;
-  max-height: 2000px;
-  overflow: hidden;
+/* Nav and menu */
+nav div.nav-wrapper ul.right,
+nav div.nav-wrapper ul.right li { height: 100%; }
+#settings-dropdown-btn {
   position: relative;
   z-index: 1;
-  -webkit-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
-  -webkit-transition-property: max-height;
-  -moz-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
-  -moz-transition-property: max-height;
-  transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
-  transition-property: max-height;
+  height: 64px;
 }
-.menu-toggle-list.ng-hide {
-  max-height: 0;
+.ut-menu-expand { color: #999; }
+
+/* Side nav */
+ul.side-nav.fixed li a {
+  font-size: 13px;
+  line-height: 44px;
+  height: 44px;
 }
 
-.ut-menu .menu-toggle-list a.md-button {
-  display: block;
-  font-weight: 400;
-  padding: 0 16px 0 32px;
-  text-transform: none;
+/* Logo */
+ul.side-nav.fixed li.logo {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+  height: 64px;
 }
-.md-button-toggle .md-toggle-icon md-icon {
-	/* Needed if using font-awesome as icon */
-	/*margin-top: 10px;*/
-	color: grey;
-}
-.md-button-toggle .md-toggle-icon {
-  display: block;
-  margin-left: auto;
-  speak: none;
-  vertical-align: middle;
-  transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  transition: transform 0.3s ease-in-out;
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-}
-.md-button-toggle .md-toggle-icon.toggled {
-  transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
-}
-
-/* End UT Menu */
-
-md-list .md-button {
-  color: inherit;
-  font-weight: 500;
-  text-align: left;
+#logo-container {
+  height: 57px;
+  margin-bottom: 32px;
   width: 100%;
+  text-align: left;
 }
-  md-list .md-button.active, md-list .md-button.selected {
-    color: #03a9f4;
-  }
+.ut-logo-icon { height: 40px; width: 40px; margin: 0; position: relative; top: 10px; }
+.ut-logotype { height: 40px; font-size: 25px; }
+.ut-logotype sup { font-size: 35%; top: -1.5em; }
 
-  md-sidenav  md-list {
-    padding: 0px 0px 8px 0px;
-  }
+a.ut-navbar-btn i.fa { line-height: initial; }
 
-	md-sidenav md-list md-list-item {
-		width: 100%;
-	}
+
+/* Headers */
+.ut-header {
+  color: #ee6e73;
+  font-weight: 300;
+}
+.ut-subheader {
+  font-weight: 100;
+  color: #333;
+  color: rgba(50, 50, 50, 0.9);
+}
+
+/* Content related styling */
+.ut-content { margin-top: 16px; }
+
+.ut-divider { margin: 10px 0; }
+
+
+/* Site-specific utility */
+.ut-margin-left { margin-left: 10px; }
+.ut-margin-right { margin-right: 10px; }
+ut-construction section { padding: 10px; }
+.ut-btn-control { width: 100%; }
+
+
+/* Table of Contents {{{ */
+.ut-toc a { cursor: pointer; }
 /* }}} */
 
-/* Table of Contents */
-.ut-toc ul { list-style: none; }
-.ut-toc ul li button { text-transform: initial; }
 
 /* Math-related symbols and styling */
 md-input-container.ut-math-operator { margin-top: 24px; }
+
 
 /* Stopwatch {{{ */
 .stopwatch-time h1 { margin-bottom: 0; }
 .stopwatch-time { margin-bottom: 20px; }
 /* }}} */
 
-/* Note dialog */
-/*.ut-dialog-note { min-width: 300px; }*/
+
+/* Panel */
+.ut-panel-heading,
+.ut-panel-body { padding: 10px; margin: 10px 0; }
+
+/* Modal styling */
+
+/* Settings modal */
+#settings-modal section { margin: 10px 0; }
+.settings-option { font-weight: bold; }
+
+/* END Modal styling */
+
 
 /* Time/Date > Timezone Finder > Map {{{ */
 .map { margin:0 auto; max-width:1024px; padding:40px; }
@@ -205,3 +133,11 @@ md-input-container.ut-math-operator { margin-top: 24px; }
 .map-inset .map-axis-x { position:absolute; top:0; bottom:0; border-left:1px solid rgba(78, 124, 173, 0.5); width:0; -webkit-transition:left 50ms ease-out; transition:left 50ms ease-out; }
 .map-inset .map-axis-y { position:absolute; left:0; right:0; border-top:1px solid rgba(78, 124, 173, 0.5); height:0; -webkit-transition:top 50ms ease-out; transition:top 50ms ease-out; }
 /* }}} */
+
+
+/* Small screen styling */
+@media screen and (max-width: 600px) {
+  #settings-dropdown-btn,
+  ul.side-nav.fixed li.logo { height: 56px; }
+  #settings-dropdown-btn { top: 15px; height: 41px; }
+}

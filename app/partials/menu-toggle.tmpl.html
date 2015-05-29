@@ -1,22 +1,13 @@
-<md-button class="md-button-toggle"
-  ng-click="toggle()"
-  aria-controls="ut-menu-{{section.name | nospace}}"
-  aria-expanded="{{isOpen()}}">
-  <div flex layout="row">
-    {{section.name}}
-    <span flex></span>
-    <span aria-hidden="true" class="md-toggle-icon"
-    ng-class="{'toggled' : isOpen()}">
-      <md-icon style="padding-top: 5px;" class="fa fa-chevron-up fa-fw"></md-icon>
-    </span>
-  </div>
-  <span class="md-visually-hidden">
-    Toggle {{isOpen()? 'expanded' : 'collapsed'}}
-  </span>
-</md-button>
-
-<ul ng-show="isOpen()" id="ut-menu-{{section.name | nospace}}" class="menu-toggle-list">
-  <li ng-repeat="page in section.pages">
-    <menu-link section="page"></menu-link>
+<ul class="collapsible" data-collapsible="expandable">
+  <li class="bold">
+    <a class="collapsible-header waves-effect waves-teal">{{section.name}} <i class="ut-menu-expand toggle mdi-navigation-expand-more right"></i></a>
+    <div ng-if="section.pages" class="collapsible-body">
+      <ul>
+        <li ng-repeat="child in section.pages">
+          <menu-link ng-if="child.type === 'link'" section="child"></menu-link>
+          <!-- <menu-toggle ng-if="child.type === 'toggle'" section="child"></menu-toggle>--> <!-- Causes infinite recursion -->
+        </li>
+      </ul>
+    </div>
   </li>
 </ul>

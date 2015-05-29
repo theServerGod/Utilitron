@@ -1,4 +1,4 @@
-app.controller('DictionaryController', function($timeout, $scope, $mdDialog, $mdToast, $animate) {
+app.controller('DictionaryController', function($timeout, $scope, $animate) {
   var self = this;
   self.words = loadAll();
   $scope.useUtilitronDict = parseSettings();
@@ -27,30 +27,6 @@ app.controller('DictionaryController', function($timeout, $scope, $mdDialog, $md
       'word': 'definition',
     };
   }
-
-  $scope.showAlert = function(ev) {
-    // Appending dialog to document.body to cover sidenav in docs app
-    // Modal dialogs should fully cover application
-    // to prevent interaction outside of dialog
-    $mdDialog.show(
-      $mdDialog.alert()
-        .parent(angular.element(document.body))
-        .title('Feature Under Development')
-        .content('This feature is currently under development, stay tuned!')
-        .ariaLabel('Under Development')
-        .ok('Okay')
-        .targetEvent(ev)
-    );
-  };
-
-  $scope.showSavedToast = function() {
-    $mdToast.show(
-      $mdToast.simple()
-        .content('Your settings have been saved locally')
-        .position('top right')
-        .hideDelay(3000)
-    );
-  };
 
   $scope.$watch('useUtilitronDict', function(newVal, oldVal) {
     localStorage.useUtilitronDict = newVal; // Persist the choice to local storage

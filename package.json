@@ -1,7 +1,7 @@
 {
   "name": "utilitron",
   "version": "0.0.0",
-  "description": "Pen knife of web apps",
+  "description": "All-in-ine utility web apps",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

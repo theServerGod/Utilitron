@@ -1,7 +1,4 @@
-app.controller('UnitConversionController', [
-  '$timeout',
-  '$scope',
-function($timeout, $scope) {
+app.controller('UnitConversionController', function($timeout, $scope) {
   $scope.from = {};
   $scope.to = {};
 
@@ -49,4 +46,4 @@ function($timeout, $scope) {
     $scope.unitConversionForm.$error.incompat = 'Invalid: Unit types are incompatible';
     return false;
   }
-}]);
+});

@@ -1,44 +1,39 @@
-<section class="ut-content" flex layout="column">
-  <form name="timeDifferenceForm">
-    <div layout layout-sm="column">
-      <md-input-container flex>
-        <label>Start</label>
-        <input type="time" ng-model="time.start" class="md-input">
-      </md-input-container>
-      <md-input-container flex>
-        <label>End</label>
-        <input type="time" ng-model="time.end" min="{{time.start}}" class="md-input">
-      </md-input-container>
-    </div>
-  </form>
-  <div ng-show="time.difference">
-    <md-subheader class="md-no-sticky">Result</md-subheader>
-    <md-list layout="column">
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-          <h3>Combined format</h3>
-          <p ng-bind="time.difference.text"></p>
+<section>
+  <div class="row">
+    <form class="col s12" name="timeDifferenceForm">
+      <div class="row">
+        <div class="input-field col s6">
+          <label class="active" for="time-start">Start</label>
+          <input id="time-start" type="time" ng-model="time.start"/>
         </div>
-      </md-list-item>
-      <md-divider></md-divider>
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-          <h3>Hours</h3>
-          <p ng-bind="time.difference.hrs"></p>
+        <div class="input-field col s6">
+          <label class="active" for="time-end">End</label>
+          <input id="time-end" type="time" ng-model="time.end" min="{{time.start}}"/>
         </div>
-      </md-list-item>
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-          <h3>Minutes</h3>
-          <p ng-bind="time.difference.min"></p>
-        </div>
-      </md-list-item>
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-          <h3>Seconds</h3>
-          <p ng-bind="time.difference.sec"></p>
-        </div>
-      </md-list-item>
-    </md-list>
+      </div>
+    </form>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section row">
+    <h4 class="header">Result</h4>
+    <ul>
+      <li>
+        <h5>Combined format</h5>
+        <p ng-bind="time.difference.text"></p>
+      </li>
+      <li>
+        <h5>Hours</h5>
+        <p ng-bind="time.difference.hrs"></p>
+      </li>
+      <li>
+        <h5>Minutes</h5>
+        <p ng-bind="time.difference.min"></p>
+      </li>
+      <li>
+        <h5>Seconds</h5>
+        <p ng-bind="time.difference.sec"></p>
+      </li>
+    </ul>
   </div>
 </section>

@@ -2,7 +2,7 @@ app.controller('CalendarController', function($scope) {
   /* Fullcalendar config object */
   $scope.uiConfig = {
     calendar:{
-      height: 450,
+      //height: 450,
       editable: true,
       header:{
         left: 'month basicWeek basicDay agendaWeek agendaDay',

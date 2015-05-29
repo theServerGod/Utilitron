@@ -1,23 +1,55 @@
-<section class="ut-content" flex layout="column">
-  <div class="stopwatch" layout="column" layout-align="center center">
+<section>
+  <div class="stopwatch center">
     <div class="stopwatch-time">
       <h1 class="text-center">{{time}}</h1>
       <div>seconds</div>
     </div>
-    <div class="stopwatch-controls">
-      <md-button class="md-primary" ng-click="start()"><i class="fa fa-fw fa-play"></i> Start</md-button>
-      <md-button class="md-warn" ng-click="stop()"><i class="fa fa-fw fa-stop"></i> Stop</md-button>
-      <md-button class="md-accent" ng-click="reset()"><i class="fa fa-fw fa-refresh"></i> Reset</md-button>
-      <md-button ng-click="lap(time)"><i class="fa fa-fw fa-plus-square"></i> Lap</md-button>
+    <div class="row">
+      <div class="s12 m8 offset-m2">
+        <div class="row stopwatch-controls">
+          <div class="col s3">
+            <button class="btn waves-effect ut-btn-control" ng-click="start()">
+              <span class="hide-on-small-only">
+                <i class="mdi-av-play-arrow left"></i> Start
+              </span>
+              <span class="hide-on-med-and-up"><i class="mdi-av-play-arrow center"></i></span>
+            </button>
+          </div>
+          <div class="col s3">
+            <button class="btn waves-effect red lighten-2 ut-btn-control" ng-click="stop()">
+              <span class="hide-on-small-only">
+                <i class="mdi-av-stop left"></i> Stop
+              </span>
+              <span class="hide-on-med-and-up"><i class="mdi-av-stop center"></i></span>
+            </button>
+          </div>
+          <div class="col s3">
+            <button class="btn waves-effect yellow darken-2 ut-btn-control" ng-click="reset()">
+              <span class="hide-on-small-only">
+                <i class="mdi-av-replay left"></i> Reset
+              </span>
+              <span class="hide-on-med-and-up"><i class="mdi-av-replay center"></i></span>
+            </button>
+          </div>
+          <div class="col s3">
+            <button class="btn waves-effect ut-btn-control" ng-click="lap(time)">
+              <span class="hide-on-small-only">
+                <i class="mdi-av-timer left"></i> Lap
+              </span>
+              <span class="hide-on-med-and-up"><i class="mdi-av-timer center"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <md-divider class="ut-divider"></md-divider>
+  <div class="divider ut-divider"></div>
 
   <div class="ut-section">
-    <md-subheader>Lapped Times</md-subheader>
-    <md-list layout="column">
-      <md-list-item ng-repeat="t in lappedTimes track by $index"><small class="text-grey">{{$index+1}}.</small> {{t}}</md-list-item>
-    </md-list>
+    <dh5 class="subheader">Lapped Times</h5>
+    <ul>
+      <li ng-repeat="t in lappedTimes track by $index"><small class="gray-text">{{$index+1}}.</small> {{t}}</li>
+    </ul>
   </div>
 </section>

@@ -1,7 +1,4 @@
-app.factory('menu', [
-  '$location',
-  '$rootScope',
-function($location, $rootScope) {
+app.factory('menu', function($location, $rootScope) {
   var sections = [{
     name: 'Time/Date',
     type: 'toggle',
@@ -33,7 +30,7 @@ function($location, $rootScope) {
       name: 'Stopwatch',
       url: '#/timedate/stopwatch',
       type: 'link',
-      icon: 'fa fa-fw fa-stop'
+      icon: 'mdi-hardware-watch'
     }]
   },
   {
@@ -91,7 +88,7 @@ function($location, $rootScope) {
 
   var self;
 
-  $rootScope.$on('$locationChangeSuccess', onLocationChange);
+  //$rootScope.$on('$locationChangeSuccess', onLocationChange);
 
   return self = {
     sections: sections,
@@ -159,4 +156,4 @@ function($location, $rootScope) {
     });
   }
 
-}]);
+});

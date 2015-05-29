@@ -1,45 +1,39 @@
-<section class="ut-content" flex layout="column">
-  <form name="dateDifferenceForm">
-    <div layout layout-sm="column">
-      <md-input-container flex>
-        <label>Start</label>
-        <input type="date" name="start" ng-model="date.start" class="md-input">
-      </md-input-container>
-      <md-input-container flex>
-        <label>End</label>
-        <input type="date" name="end" ng-model="date.end" min="{{date.start}}" class="md-input">
-        <small ng-show="dateDifferenceForm.end.$invalid" class="md-caption">The end date must be greater than or equal to the start date</small>
-      </md-input-container>
-    </div>
-  </form>
-  <div ng-show="date.diff">
-    <md-subheader class="md-no-sticky">Result</md-subheader>
-    <md-list layout="column">
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-          <h3>Human readable</h3>
-          <p ng-bind="date.diff.text || 'Same date'"></p>
+<section>
+  <div class="row">
+    <form class="col s12" name="dateDifferenceForm">
+      <div class="row">
+        <div class="input-field col s6">
+          <label class="active" for="date-start">Start</label>
+          <input id="date-start" type="date" class="datepicker" ng-model="date.start"/>
         </div>
-      </md-list-item>
-      <md-divider></md-divider>
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-          <h3>Years</h3>
-          <p ng-bind="date.diff.years"></p>
+        <div class="input-field col s6">
+          <label class="active" for="date-end">End</label>
+          <input id="date-end" type="date" class="datepicker" ng-model="date.end" min="{{date.start}}"/>
         </div>
-      </md-list-item>
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-          <h3>Months</h3>
-          <p ng-bind="date.diff.months"></p>
-        </div>
-      </md-list-item>
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-          <h3>Days</h3>
-          <p ng-bind="date.diff.days"></p>
-        </div>
-      </md-list-item>
-    </md-list>
+      </div>
+    </form>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section row">
+    <h4 class="header">Result</h4>
+    <ul>
+      <li>
+        <h5>Human Readable</h5>
+        <p ng-bind="date.diff.text || 'Same date'"></p>
+      </li>
+      <li>
+        <h5>Years</h5>
+        <p ng-bind="date.diff.years"></p>
+      </li>
+      <li>
+        <h5>Months</h5>
+        <p ng-bind="date.diff.months"></p>
+      </li>
+      <li>
+        <h5>Days</h5>
+        <p ng-bind="date.diff.days"></p>
+      </li>
+    </ul>
   </div>
 </section>

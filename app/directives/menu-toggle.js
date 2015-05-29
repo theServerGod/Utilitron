@@ -1,5 +1,12 @@
+/**
+ * Directive may implemented to be called as an attribute of an element
+ * E.g. `<ul menu-toggle class="collapsible" data-collapsible="expandable">`
+ */
+
 app.directive('menuToggle', function() {
   return {
+    /* Creating directives are restricted to attribute and elements by default,
+     * so no need to explicitly specify directive restrictions */
     scope: {
       section: '='
     },
@@ -13,12 +20,6 @@ app.directive('menuToggle', function() {
       $scope.toggle = function() {
         controller.toggleOpen($scope.section);
       };
-
-      var parentNode = $element[0].parentNode.parentNode.parentNode;
-      if(parentNode.classList.contains('parent-list-item')) {
-        var heading = parentNode.querySelector('h2');
-        $element[0].firstChild.setAttribute('aria-describedby', heading.id);
-      }
     }
   };
 });

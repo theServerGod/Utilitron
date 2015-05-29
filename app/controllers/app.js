@@ -1,24 +1,7 @@
-app.controller('AppController', [
-	'$scope',
-	'$mdSidenav',
-	'$timeout',
-	'$mdDialog',
-	'menu',
-	'$location',
-	'$route',
-	'$rootScope',
-	'$log',
-	'$window',
-	'$mdToast',
-	'$animate',
-	'$anchorScroll',
-function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $rootScope, $log, $window, $mdToast, $animate, $anchorScroll) {
+app.controller('AppController', function($scope, $timeout, menu, $location, $route, $rootScope, $log, $window, $animate, $anchorScroll) {
 	var self = this;
 
 	/* Disabled for future implementation - 2015-04-26
-	// Attempt to pull in localStorage data if any
-	self.localData = localStorage.length ? JSON.parse(localStorage) : null;
-
 	// Development mode - for easier switching of <base> element in index {{{
 	$scope.SHOW_DEV_SETTINGS = true; // Show development settings in the UI
 	$scope.DEV_MODE = (self.localData && self.localData.settings.devMode) ? !!self.localData.settings.devMode : false;
@@ -32,113 +15,60 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 		$scope.SITE_ROOT = '/'; // development base URI
 	// }}}
 
-	// FIXME - Quick and dirty fix for jQuery/ngMaterial issue with $mdSidenav functionality
-	//if ($location.path() !== '/timedate/timezone')
-	window.jQuery = null;
-
 	// Expose $route var to app and child controllers - used mainly for $route.current
 	$scope.$route = $route;
 	$scope.menu = menu;
 
-	// Used for sidebar navigation menu {{{
-	$scope.path = path;
-	$scope.goHome = goHome;
-	$scope.openMenu = openMenu;
-	$scope.toggleMenu = toggleMenu;
-	$scope.closeMenu = closeMenu;
-	$scope.isSectionSelected = isSectionSelected;
-	$rootScope.$on('$locationChangeSuccess', openPage);
-	$scope.focusMainContent = focusMainContent;
+	// Use angular listener to close nav panel if sidenav is not fixed
+	//$rootScope.$on('$locationChangeSuccess');
 
-	var mainContentArea = document.querySelector("[role='main']");
-	// }}}
+	/* Local storage functions {{{ */
 
-	// Internal methods {{{
-	// Methods used by menuLink and menuToggle directives {{{
-	$scope.isSectionSelected = isSectionSelected;
-	this.isOpen = isOpen;
-	this.isSelected = isSelected;
-	this.toggleOpen = toggleOpen;
-	this.autoFocusContent = false;
-
-	function isOpen(section) {
-	  return menu.isSectionSelected(section);
-	}
-
-	function toggleOpen(section) {
-	  menu.toggleSelectSection(section);
-	}
-
-	function isSelected(page) {
-	  return menu.isPageSelected(page);
-	}
-
-	function isSectionSelected(section) {
-		var selected = false;
-		var openedSection = menu.openedSection;
-		if (openedSection === section){
-			selected = true;
-		}
-		else if (section.children) {
-			section.children.forEach(function(childSection) {
-				if (childSection === openedSection){
-					selected = true;
-				}
-			});
-		}
-		return selected;
-	}
-	// }}}
-
-	function closeMenu() {
-	  $timeout(function() { $mdSidenav('left').close(); });
-	}
-
-	function openMenu() {
-	  $timeout(function() { $mdSidenav('left').open(); });
-	}
-
-	function toggleMenu() {
-		$timeout(function() { $mdSidenav('left').toggle(); });
-	}
-
-	function path() {
-	  return $location.path();
-	}
-
-	function goHome($event) {
-	  menu.selectPage(null, null);
-	  $location.path( '/' );
-	}
-
-	function openPage() {
-	  $scope.closeMenu();
-
-	  if (self.autoFocusContent) {
-	    focusMainContent();
-	    self.autoFocusContent = false;
-	  }
-	}
-
-	function focusMainContent($event) {
-	  // prevent skip link from redirecting
-	  if ($event) { $event.preventDefault(); }
-
-	  $timeout(function(){
-	    mainContentArea.focus();
-	  },90);
-	}
-	// }}}
-
-	$scope.toggleSidenav = function(menuId) {
-		$mdSidenav(menuId).toggle();
+	// Stores configuration and user data
+	$scope.localData = { settings: {}, data: {}};
+	// Default configuration, to be used if a user-defined configuration does not exist
+	var defaultSettings = {
+		welcomeHero: true,
 	};
 
-	$scope.focusSection = function(section) {
-		// set flag to be used later when
-		// $locationChangeSuccess calls openPage()
-		self.autoFocusContent = true;
+	// Attempt to pull in localStorage data if any, otherwise assign defaults
+	$scope.localData.settings = (localStorage.length && localStorage.settings) ? JSON.parse(localStorage.settings) : defaultSettings;
+	$scope.localData.data = (localStorage.length && localStorage.data) ? JSON.parse(localStorage.data) : {};
+	$rootScope.$on('saveData', saveLocalData); // Create 'saveData' handler
+
+	function saveLocalData() {
+		localStorage.settings = JSON.stringify($scope.localData.settings);
+		//localStorage.data = JSON.stringify($scope.localData.data);
+	}
+
+	$scope.clearLocalStorage = function() {
+		if (confirm('This will delete ALL your locally saved data and settings.\n\nAre you sure?')) {
+			localStorage.clear();
+			Materialize.toast('Local storage cleared. Page will reload in 4 seconds', 4000);
+			$timeout(function() { window.location.reload(); }, 4000);
+		}
 	};
+
+	/* Settings functions {{{ */
+	$scope.toggleWelcomeHero = function() {
+		if ($scope.localData.settings.welcomeHero)
+			$scope.localData.settings.welcomeHero = !$scope.localData.settings.welcomeHero;
+		else
+			$scope.localData.settings.welcomeHero = true;
+
+		$rootScope.$emit('saveData');
+	};
+	/* }}} */
+
+	/* }}} */
+
+	$scope.openModal = function(modalSelector) {
+		$(modalSelector).openModal();
+	};
+
+	$scope.closeModal = function(modalSelector) {
+		$(modalSelector).closeModal();
+	}
 
 	$scope.gotoAnchor = function(x) {
 		var newHash = 'anchor-' + x;
@@ -153,37 +83,4 @@ function($scope, $mdSidenav, $timeout, $mdDialog, menu, $location, $route, $root
 		}
 	};
 
-	$scope.showSettingsDialog = function($event) {
-	    // Appending dialog to document.body to cover sidenav in docs app
-	    // Modal dialogs should fully cover application
-	    // to prevent interaction outside of dialog
-			var parentEl = angular.element(document.body);
-	    $mdDialog.show({
-				parent: parentEl,
-				targetEvent: $event,
-				templateUrl: 'app/partials/settings-menu.tmpl.html',
-				locals: {
-					items: $scope.items
-				},
-				controller: SettingsDialogController
-	    });
-			function SettingsDialogController(scope, $mdDialog, items) {
-				scope.items = items;
-				scope.closeDialog = function() {
-					$mdDialog.hide();
-				}
-
-				scope.clearLocalStorage = function() {
-					localStorage.clear();
-					// Show toast
-					$mdToast.show(
-			      $mdToast.simple()
-			        .content('Your settings have been cleared')
-			        .position('top right')
-			        .hideDelay(3000)
-			    );
-				}
-			}
-	  };
-
-}]);
+});

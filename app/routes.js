@@ -1,8 +1,5 @@
 // Routes {{{
-app.config([
-	'$routeProvider',
-	'$mdThemingProvider',
-function($routeProvider, $mdThemingProvider) {
+app.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'app/views/home.html'
@@ -75,10 +72,6 @@ function($routeProvider, $mdThemingProvider) {
 	// }}}
 
 	$routeProvider.otherwise('/404');
-
-	$mdThemingProvider.theme('dark', 'default')
-		.primaryPalette('yellow')
-		.dark();
-}]);
+});
 
 // }}}

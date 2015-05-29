@@ -1,0 +1,26 @@
+<!-- Settings Modal -->
+<div id="settings-modal" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4 class="ut-header">Settings</h4>
+    <section>
+      <h5 class="ut-subheader">Clear Local Settings and Data</h5>
+      <button class="btn waves-effect waves-light red" ng-click="clearLocalStorage()"><i class="mdi-action-delete left"></i> Clear Local Storage</button>
+    </section>
+    <div class="divider"></div>
+    <section>
+      <h5 class="ut-subheader">Configuration</h5>
+      <ut-construction>
+        <div class="row">
+          <div class="col s3 settings-option">Theme</div>
+          <div class="col s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" id="theme-default"/><label for="theme-default">Default</label></div>
+          <div class="col s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" id="theme-dark"/><label for="theme-dark">Dark</label></div>
+          <div class="col s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" id="theme-light"/><label for="theme-light">Light</label></div>
+        </div>
+        <button class="btn btn-flat waves-effect waves-light" ng-click="configureMenu()"><i class="mdi-navigation-menu left"></i> Configure Menu</button>
+      </ut-construction>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div>

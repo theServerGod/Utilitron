@@ -2,7 +2,7 @@
 <html lang="en" ng-app="app" ng-controller="AppController as ac">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<base ng-href="{{SITE_ROOT}}">
 	<link rel="icon" sizes="128x128" type="image/png" href="public/img/favicon.png">
 
@@ -14,79 +14,17 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
-	<!-- AngularJS Material -->
-	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+	<!-- MaterializeCSS -->
+	<link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
 
 	<!-- Fullcalendar -->
 	<link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css"/>
 
 	<!-- Site CSS -->
 	<link rel="stylesheet" href="build/site.min.css">
-</head>
-<body layout="row">
-	<md-sidenav layout="column" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-		<md-toolbar layout="row">
-			<h1 class="md-toolbar-tools" layout-align-gt-sm="center">
-				<a ng-click="goHome()" layout="row" flex class="ut-logo cursor-pointer">
-					<img class="ut-logo-icon" src="public/img/favicon.png"/>
-					<div class="ut-logotype">Utilitron<sup>&#060;BETA&#062;</sup></div>
-				</a>
-			</h1>
-		</md-toolbar>
 
-		<md-content flex role="navigation" ng-cloak>
-			<ul class="ut-menu">
-				<li ng-repeat="section in menu.sections" ng-class="{'parentActive' : isSectionSelected(section)}" ng-cloak>
-					<h2 class="menu-heading md-subhead" ng-if="section-type === 'heading'" id="heading_{{ section.name }}" ng-cloak>
-						{{section.name}}
-					</h2>
 
-					<menu-link section="section" ng-if="section.type === 'link'"></menu-link>
-					<menu-toggle section="section" ng-if="section.type === 'toggle'"></menu-toggle>
-
-					<ul ng-if="section.children" class="menu-nested-list">
-						<li ng-repeat="child in section.children" ng-class="{'childActive' : isSectionSelected(child)}">
-							<menu-link section="child" ng-if="child.type === 'link'"></menu-link>
-							<menu-toggle section="child" ng-if="child-type === 'toggle'"></menu-toggle>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</md-content>
-	</md-sidenav>
-
-	<div id="content" role="main" layout="column" flex tabIndex="-1">
-		<md-toolbar>
-			<div class="md-toolbar-tools" tabIndex="-1">
-				<md-button class="menu" hide-gt-sm aria-label="Toggle Menu" ng-click="openMenu()">
-					<i class="fa fa-bars fa-fw fa-lg"></i>
-					<span class="visually-hidden">Menu</span>
-				</md-button>
-
-				<div layout="row" flex class="fill-height" ng-click="openMenu()">
-					<h2 class="md-toolbar-tools md-breadcrumb text-white" layout-align-="left">
-						<span ng-if="menu.currentSection && menu.currentSection.pages" ng-cloak>
-							{{menu.currentSection.name + ($route.current.title ? ' > ' + $route.current.title : '')}}
-						</span>
-						<span ng-if="!menu.currentSection.pages" ng-cloak>
-							{{$route.current.title ? $route.current.title : ''}}
-							<span ng-if="!$route.current.title" hide-gt-sm>Utilitron</span>
-						</span>
-					</h2>
-				</div>
-
-				<md-button class="ut-settings-menu" aria-label="Toggle Settings" ng-click="showSettingsDialog($event)">
-					<i class="fa fa-ellipsis-v fa-lg"></i>
-					<span class="md-visually-hidden">Settings</span>
-				</md-button>
-			</div>
-		</md-toolbar>
-
-		<md-content ng-view md-scroll-y flex layout-padding layout-margin></md-content>
-
-	</div>
-
-	<!-- Scripts {{{ -->
+	<!-- Modern browsers implicitly use `defer` with script loading so it's safe to put scripts in the page head now -->
 
 	<!-- jQuery -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -98,13 +36,14 @@
 	<!-- lodash -->
 	<script src="bower_components/lodash/lodash.min.js"></script>
 
+	<!-- Materialize -->
+	<script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+
 	<!-- AngularJS -->
 	<script src="bower_components/angular/angular.min.js"></script>
-	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
-	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
 	<script src="bower_components/angular-touch/angular-touch.min.js"></script>
-	<script src="bower_components/angular-material/angular-material.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 
 	<!-- Fullcalendar -->
 	<script type="text/javascript" src="bower_components/angular-ui-calendar/calendar.min.js"></script>
@@ -112,7 +51,87 @@
 
 	<!-- Site NG -->
 	<script src="build/site.min.js"></script>
+	<script src="public/js/init.js"></script>
+</head>
+<body>
+	<!-- Modals -->
+	<ng-include src="'app/partials/modals/settings.tmpl.html'"></ng-include>
+	<ng-include src="'app/partials/modals/about.tmpl.html'"></ng-include>
 
-	<!-- }}} -->
+	<header>
+		<!-- Top nav bar -->
+		<div class="navbar-fixed">
+			<nav class="top-nav">
+				<div class="container">
+					<div class="nav-wrapper">
+						<a href="" data-activates="nav-mobile" class="button-collapse top-nav waves-light-circle ut-margin-left"><i class="mdi-navigation-menu"></i></a>
+
+						<div class="center brand-logo ut-breadcrumb" width="100px">
+							<span ng-if="menu.currentSection && menu.currentSection.pages" ng-cloak>
+								{{menu.currentSection.name + ($route.current.title ? ' > ' + $route.current.title : '')}}
+							</span>
+							<span ng-if="!menu.currentSection.pages" ng-cloak>
+								{{$route.current.title ? $route.current.title : ''}}
+								<span ng-if="!$route.current.title" hide-gt-sm>Utilitron</span>
+							</span>
+						</div>
+
+						<ul class="right">
+							<li>
+								<a id="settings-dropdown-btn"
+									class="dropdown-button cursor-pointer"
+									data-activates="settings-dropdown"
+									data-constrainwidth="false"
+									data-beloworigin="true"><i class="fa fa-ellipsis-v"></i></a>
+							</li>
+
+							<ul id="settings-dropdown" class="dropdown-content">
+								<li><a class="cursor-pointer" ng-click="openModal('#settings-modal')" title="Settings">Settings</a></li>
+								<li><a class="" ng-click="openModal('#about-modal')">About</a></li>
+							</ul>
+						</ul>
+					</div><!-- ./nav-wrapper -->
+				</div><!-- ./container -->
+			</nav>
+		</div>
+
+		<!-- Side nav bar -->
+		<ul id="nav-mobile" class="side-nav fixed">
+			<li class="logo ut-logo">
+				<a id="logo-container" class="brand-logo" href="#/">
+					<img class="ut-logo-icon" src="public/img/favicon.png"/>
+					<span class="ut-logotype">Utilitron<sup>&#060;BETA&#062;</sup></span>
+				</a>
+			</li>
+
+			<li ng-repeat="section in menu.sections" ng-class="section.type === 'toggle' ? 'no-padding' : ''">
+				<!-- Menu link -->
+				<menu-link ng-if="section.type === 'link'" section="section"></menu-link>
+
+				<!-- Menu toggle -->
+				<ul ng-if="section.type === 'toggle'" class="collapsible" data-collapsible="expandable">
+				  <li class="bold">
+				    <a class="collapsible-header waves-effect waves-teal">{{section.name}} <i class="ut-menu-expand toggle mdi-navigation-expand-more right"></i></a>
+				    <div ng-if="section.pages" class="collapsible-body">
+				      <ul>
+				        <li ng-repeat="child in section.pages">
+				          <menu-link ng-if="child.type === 'link'" section="child"></menu-link>
+				        </li>
+				      </ul>
+				    </div>
+				  </li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="ut-content" ng-view></div>
+			</div>
+		</div>
+	</main>
+
 </body>
 </html>
