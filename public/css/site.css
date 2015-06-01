@@ -6,6 +6,7 @@
 .card.large .card-content { height: auto; }
 .card.large { min-height: 500px; }
 .card.large .card-content { min-height: 170px; }
+.card.large .card-action { position: relative; }
 
 
 /* NG animate */
@@ -90,6 +91,10 @@ a.ut-navbar-btn i.fa { line-height: initial; }
 .ut-margin-right { margin-right: 10px; }
 ut-construction section { padding: 10px; }
 .ut-btn-control { width: 100%; }
+.ut-container {
+  width: 100%;
+  padding: 0;
+}
 
 
 /* Table of Contents {{{ */
@@ -136,8 +141,18 @@ md-input-container.ut-math-operator { margin-top: 24px; }
 
 
 /* Small screen styling */
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   #settings-dropdown-btn,
   ul.side-nav.fixed li.logo { height: 56px; }
-  #settings-dropdown-btn { top: 15px; height: 41px; }
+  #settings-dropdown-btn { padding-top: 15px; }
+}
+
+/* Centre top nav offset fix for sidenav */
+@media only screen and (min-width: 993px) {
+  .ut-breadcrumb { margin-left: -240px; }
+}
+
+/* Right top nav menu fix for medium-large screens */
+@media only screen and (min-width: 993px) and (max-width: 1765px) {
+  nav.top-nav ul.right { margin-right: 240px; }
 }
