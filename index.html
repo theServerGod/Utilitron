@@ -66,13 +66,13 @@
 					<div class="nav-wrapper">
 						<a href="" data-activates="nav-mobile" class="button-collapse top-nav waves-light-circle ut-margin-left"><i class="mdi-navigation-menu"></i></a>
 
-						<div class="center brand-logo ut-breadcrumb" width="100px">
+						<div class="ut-breadcrumb left">
 							<span ng-if="menu.currentSection && menu.currentSection.pages" ng-cloak>
 								{{menu.currentSection.name + ($route.current.title ? ' > ' + $route.current.title : '')}}
 							</span>
 							<span ng-if="!menu.currentSection.pages" ng-cloak>
 								{{$route.current.title ? $route.current.title : ''}}
-								<span ng-if="!$route.current.title" hide-gt-sm>Utilitron</span>
+								<span ng-if="!$route.current.title" class="hide-on-large-only">Utilitron</span>
 							</span>
 						</div>
 

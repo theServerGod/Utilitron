@@ -40,6 +40,12 @@ nav div.nav-wrapper ul.right li { height: 100%; }
   height: 64px;
 }
 .ut-menu-expand { color: #999; }
+.ut-breadcrumb { font-size: 2.0rem; }
+.ut-breadcrumb.center {
+  position: absolute;
+  left: 50%;
+}
+.ut-breadcrumb.left { margin-left: 0.5em; }
 
 /* Side nav */
 ul.side-nav.fixed li a {
