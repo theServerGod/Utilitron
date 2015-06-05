@@ -5,11 +5,12 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 	// Development mode - for easier switching of <base> element in index {{{
 	$scope.SHOW_DEV_SETTINGS = true; // Show development settings in the UI
 	$scope.DEV_MODE = (self.localData && self.localData.settings.devMode) ? !!self.localData.settings.devMode : false;
-	*/
 
 	$scope.DEV_MODE = false;
+	*/
 
-	if (!$scope.DEV_MODE)
+	// Use the hostname to determine which <base> url to set
+	if (window.location.hostname === 'theservergod.github.io')
 		$scope.SITE_ROOT = 'http://theservergod.github.io/Utilitron/'; // FIXME - Add this as a proper constant
 	else
 		$scope.SITE_ROOT = '/'; // development base URI
