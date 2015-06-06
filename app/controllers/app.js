@@ -1,20 +1,11 @@
-app.controller('AppController', function($scope, $timeout, menu, $location, $route, $rootScope, $log, $window, $animate, $anchorScroll) {
+/**
+ * Primary controller for Utilitron. Manages local storage reading/writing,
+ * modal opening/closing, and other such app-wide settings and data.
+ */
+app.controller('AppController', function($scope, $timeout, menu, $location, $route, $rootScope, $log, $window, $animate, $anchorScroll, SITE_ROOT) {
 	var self = this;
 
-	/* Disabled for future implementation - 2015-04-26
-	// Development mode - for easier switching of <base> element in index {{{
-	$scope.SHOW_DEV_SETTINGS = true; // Show development settings in the UI
-	$scope.DEV_MODE = (self.localData && self.localData.settings.devMode) ? !!self.localData.settings.devMode : false;
-
-	$scope.DEV_MODE = false;
-	*/
-
-	// Use the hostname to determine which <base> url to set
-	if (window.location.hostname === 'theservergod.github.io')
-		$scope.SITE_ROOT = 'http://theservergod.github.io/Utilitron/'; // FIXME - Add this as a proper constant
-	else
-		$scope.SITE_ROOT = '/'; // development base URI
-	// }}}
+	$scope.SITE_ROOT = SITE_ROOT;
 
 	// Expose $route var to app and child controllers - used mainly for $route.current
 	$scope.$route = $route;
@@ -26,17 +17,28 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 	/* Local storage functions {{{ */
 
 	// Stores configuration and user data
-	$scope.localData = { settings: {}, data: {}};
-	// Default configuration, to be used if a user-defined configuration does not exist
-	var defaultSettings = {
-		welcomeHero: true,
-	};
+	$rootScope.$on('saveData', saveLocalData); // Create 'saveData' event handler
 
-	// Attempt to pull in localStorage data if any, otherwise assign defaults
-	$scope.localData.settings = (localStorage.length && localStorage.settings) ? JSON.parse(localStorage.settings) : defaultSettings;
-	$scope.localData.data = (localStorage.length && localStorage.data) ? JSON.parse(localStorage.data) : {};
-	$rootScope.$on('saveData', saveLocalData); // Create 'saveData' handler
+	/**
+	 * Initialise the application data and settings
+	 */
+	function init() {
+		$scope.localData = { settings: {}, data: {}};
+		// Default configuration, to be used if a user-defined configuration does not exist
+		var defaultSettings = {
+			welcomeHero: true,
+		};
 
+		// Attempt to pull in localStorage data if any, otherwise assign defaults
+		$scope.localData.settings = (localStorage.length && localStorage.settings) ? JSON.parse(localStorage.settings) : defaultSettings;
+		$scope.localData.data = (localStorage.length && localStorage.data) ? JSON.parse(localStorage.data) : {};
+	}
+	init(); // Immediately perform initialisation
+
+	/**
+	 * Commits the current app settings and data (held in memory) to the browser's
+	 * localStorage
+	 */
 	function saveLocalData() {
 		localStorage.settings = JSON.stringify($scope.localData.settings);
 		//localStorage.data = JSON.stringify($scope.localData.data);
@@ -51,26 +53,53 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 	};
 
 	/* Settings functions {{{ */
-	$scope.toggleWelcomeHero = function() {
-		if ($scope.localData.settings.welcomeHero)
-			$scope.localData.settings.welcomeHero = !$scope.localData.settings.welcomeHero;
-		else
-			$scope.localData.settings.welcomeHero = true;
 
-		$rootScope.$emit('saveData');
+	/**
+	 * Toggles the given component to an enabled (displayed) or disabled (hidden) state
+	 * @param string The component to toggle
+	 */
+	$scope.toggle = function(component) {
+		component = component || null;
+		if (component) {
+			switch (component) {
+				case 'welcomeHero':
+					if ($scope.localData.settings.welcomeHero)
+						$scope.localData.settings.welcomeHero = !$scope.localData.settings.welcomeHero;
+					else
+						$scope.localData.settings.welcomeHero = true;
+					break;
+			}
+
+			$rootScope.$emit('saveData');
+		} else {
+			console.error('toggle() - nothing was specified!');
+		}
 	};
 	/* }}} */
 
 	/* }}} */
 
-	$scope.openModal = function(modalSelector) {
-		$(modalSelector).openModal();
+	/**
+	 * Opens or closes the specified modal.
+	 * @param string modalSelector The modal to perform the action on
+	 * @param string action The open or close action to perform
+	 */
+	$scope.modal = function(modalSelector, action) {
+		var modal = $(modalSelector);
+		switch (action) {
+			case 'open':
+				modal.openModal();
+				break;
+			case 'close':
+				modal.closeModal();
+				break;
+		}
 	};
 
-	$scope.closeModal = function(modalSelector) {
-		$(modalSelector).closeModal();
-	}
-
+	/**
+	 * Moves current viewport focus to given fragment identifier
+	 * @param string The fragment identifier to move focus to
+	 */
 	$scope.gotoAnchor = function(x) {
 		var newHash = 'anchor-' + x;
 		if ($location.hash() !== newHash) {

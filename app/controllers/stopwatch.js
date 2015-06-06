@@ -1,8 +1,11 @@
+/**
+ * Stopwatch for the time/date module
+ */
 app.controller('StopwatchController', function($scope, $timeout) {
   $scope.time = 0; // Time count in seconds
 
-  /*
-   * Primary mechanism for the stopwatch; ticks every second
+  /**
+   * Primary ticking mechanism for the stopwatch; ticks every second
    */
   function tick() {
     $scope.time++;
