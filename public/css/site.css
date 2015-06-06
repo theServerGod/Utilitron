@@ -3,22 +3,27 @@
 /* Materialize Overrides */
 .card.large,
 .card.large .card-image,
-.card.large .card-content { height: auto; }
-.card.large { min-height: 500px; }
-.card.large .card-content { min-height: 170px; }
-.card.large .card-action { position: relative; }
-
+.card.large .card-content {
+  height: auto;
+}
+.card.large {
+  min-height: 500px;
+}
+.card.large .card-content {
+  min-height: 170px;
+}
+.card.large .card-action {
+  position: relative;
+}
 
 /* NG animate */
 .ut-show-hide {
   -webkit-transition:all linear 0.5s;
   transition:all linear 0.5s;
 }
-
 .ut-show-hide.ng-hide {
   opacity:0;
 }
-
 
 /* Create content offset for fixed sidenav */
 header, main, footer {
@@ -30,22 +35,33 @@ header, main, footer {
   }
 }
 
-
 /* Nav and menu */
 nav div.nav-wrapper ul.right,
-nav div.nav-wrapper ul.right li { height: 100%; }
+nav div.nav-wrapper ul.right li {
+  height: 100%;
+}
 #settings-dropdown-btn {
   position: relative;
   z-index: 1;
   height: 64px;
 }
-.ut-menu-expand { color: #999; }
-.ut-breadcrumb { font-size: 2.0rem; }
+.ut-menu-expand {
+  color: #999;
+}
+.ut-breadcrumb {
+  font-size: 2.0rem;
+}
 .ut-breadcrumb.center {
   position: absolute;
   left: 50%;
 }
-.ut-breadcrumb.left { margin-left: 0.5em; }
+.ut-breadcrumb.left {
+  margin-left: 0.5em;
+}
+a.ut-navbar-btn i.fa {
+  line-height: initial;
+}
+
 
 /* Side nav */
 ul.side-nav.fixed li a {
@@ -68,12 +84,21 @@ ul.side-nav.fixed li.logo {
   width: 100%;
   text-align: left;
 }
-.ut-logo-icon { height: 40px; width: 40px; margin: 0; position: relative; top: 10px; }
-.ut-logotype { height: 40px; font-size: 25px; }
-.ut-logotype sup { font-size: 35%; top: -1.5em; }
-
-a.ut-navbar-btn i.fa { line-height: initial; }
-
+.ut-logo-icon {
+  height: 40px;
+  width: 40px;
+  margin: 0;
+  position: relative;
+  top: 10px;
+}
+.ut-logotype {
+  height: 40px;
+  font-size: 25px;
+}
+.ut-logotype sup {
+  font-size: 35%;
+  top: -1.5em;
+}
 
 /* Headers */
 .ut-header {
@@ -87,46 +112,67 @@ a.ut-navbar-btn i.fa { line-height: initial; }
 }
 
 /* Content related styling */
-.ut-content { margin-top: 16px; }
-
-.ut-divider { margin: 10px 0; }
-
+.ut-content {
+  margin-top: 16px;
+}
+.ut-divider {
+  margin: 10px 0;
+}
 
 /* Site-specific utility */
-.ut-margin-left { margin-left: 10px; }
-.ut-margin-right { margin-right: 10px; }
-ut-construction section { padding: 10px; }
-.ut-btn-control { width: 100%; }
+.ut-margin-left {
+  margin-left: 10px;
+}
+.ut-margin-right {
+  margin-right: 10px;
+}
+ut-construction section {
+  padding: 10px;
+}
+.ut-btn-control {
+  width: 100%;
+}
 .ut-container {
   width: 100%;
   padding: 0;
 }
 
-
 /* Table of Contents {{{ */
-.ut-toc a { cursor: pointer; }
+.ut-toc a {
+  cursor: pointer;
+}
 /* }}} */
-
 
 /* Math-related symbols and styling */
-md-input-container.ut-math-operator { margin-top: 24px; }
-
+md-input-container.ut-math-operator {
+  margin-top: 24px;
+}
 
 /* Stopwatch {{{ */
-.stopwatch-time h1 { margin-bottom: 0; }
-.stopwatch-time { margin-bottom: 20px; }
+.stopwatch-time h1 {
+  margin-bottom: 0;
+}
+.stopwatch-time {
+  margin-bottom: 20px;
+}
 /* }}} */
-
 
 /* Panel */
 .ut-panel-heading,
-.ut-panel-body { padding: 10px; margin: 10px 0; }
+.ut-panel-body {
+  padding: 10px;
+  margin: 10px 0;
+}
 
 /* Modal styling */
 
 /* Settings modal */
-#settings-modal section { margin: 10px 0; }
-.settings-option { font-weight: bold; }
+#settings-modal section {
+  margin: 10px 0;
+}
+.settings-option {
+  font-weight: bold;
+}
 
 /* END Modal styling */
 
@@ -149,16 +195,24 @@ md-input-container.ut-math-operator { margin-top: 24px; }
 /* Small screen styling */
 @media only screen and (max-width: 600px) {
   #settings-dropdown-btn,
-  ul.side-nav.fixed li.logo { height: 56px; }
-  #settings-dropdown-btn { padding-top: 15px; }
+  ul.side-nav.fixed li.logo {
+    height: 56px;
+  }
+  #settings-dropdown-btn {
+    padding-top: 15px;
+  }
 }
 
 /* Centre top nav offset fix for sidenav */
 @media only screen and (min-width: 993px) {
-  .ut-breadcrumb { margin-left: -240px; }
+  .ut-breadcrumb {
+    margin-left: -240px;
+  }
 }
 
 /* Right top nav menu fix for medium-large screens */
 @media only screen and (min-width: 993px) and (max-width: 1765px) {
-  nav.top-nav ul.right { margin-right: 240px; }
+  nav.top-nav ul.right {
+    margin-right: 240px;
+  }
 }

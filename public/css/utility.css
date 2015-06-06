@@ -1,4 +1,4 @@
-/* Utility/Helper styling/formatting */
+/*! Utility/Helper styling/formatting */
 
 /* Text styling */
 .text-left { text-align: left; }
@@ -15,16 +15,18 @@
 .text-overflow-ellipsis { text-overflow: ellipsis; }
 .text-transform-initial { text-transform: initial; }
 
+/* Background styling */
 .bg-red { background-color: red; }
 .bg-green { background-color: green; }
 .bg-blue { background-color: blue; }
 .bg-yellow { background-color: #cfcf50; }
 .bg-gray, .bg-grey { background-color: rgb(210, 210, 210); }
-
+/* Background overrides */
 .bg-green-or { background-color: green !important; }
 .bg-yellow-or { background-color: #cfcf50 !important; }
 .bg-gray-or, .bg-grey-or { background-color: rgb(210, 210, 210) !important; }
 
+/* Alignment */
 .pull-left { float: left; }
 .pull-right { float: right; }
 
@@ -34,4 +36,5 @@
 .cursor-progress { cursor: progress; }
 .cursor-none { cursor: none; }
 
+/* Text/content selection */
 .select-none { user-select: none; -webkit-user-select: none; -moz-user-select: none; }

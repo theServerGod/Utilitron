@@ -4,26 +4,36 @@
   <div class="row">
     <form class="col s12" name="unitConversionForm">
       <div class="row">
-        <div class="input-field col s8">
+        <div class="input-field col s8 m4">
           <label>From</label>
           <input type="number" name="fromValue" ng-model="from.value" class="md-input">
         </div>
-        <div class="input-field col s4">
-          <label>From Unit</label>
-          <select ng-model="from.unit" required>
-            <option value="{{ from.unit ? from.unit : '' }}" disabled selected>
-              {{ from.unit ? from.unit.symbol : '-- Select Unit --' }}
-            </option>
-            <option ng-value="unit" ng-repeat="unit in units">{{unit.name}}</option>
+        <div class="input-field col s4 m2">
+          <label class="active">From Unit</label>
+          <select class="browser-default" ng-model="from.unit.symbol" required>
+            <option value="" disabled ng-selected="!from.unit.symbol">-- Select Unit --</option>
+            <option ng-value="unit.symbol" ng-repeat="unit in units" ng-selected="unit == from.unit.symbol">{{unit.name}}</option>
             <!-- <div label="{{t.type}}" ng-repeat="t in types">
               <option ng-value="unit" ng-repeat="unit in units | filter:{type: t.type}">{{unit.name}}</option>
             </div> -->
           </select>
         </div>
+
+        <div class="input-field col s8 m4">
+          <label ng-class="to.value ? 'active' : ''">To</label>
+          <input type="number" name="toValue" ng-model="to.value" class="md-input">
+        </div>
+        <div class="input-field col s4 m2">
+          <label class="active">To Unit</label>
+          <select class="browser-default" ng-model="to.unit.symbol" required>
+            <option value="" disabled ng-selected="!to.unit">-- Select Unit --</option>
+            <option ng-value="unit.symbol" ng-repeat="unit in units" ng-selected="unit.symbol == to.unit.symbol">{{unit.name}}</option>
+          </select>
+        </div>
       </div>
 
       <div class="ut-error" ng-if="unitConversionForm.$error.incompat">
-        <span class="md-warn md-caption">{{unitConversionForm.$error.incompat}}</span>
+        <span class="red-text">{{unitConversionForm.$error.incompat}}</span>
       </div>
     </form>
   </div>

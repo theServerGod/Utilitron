@@ -27,13 +27,23 @@ app.controller('UnitConversionController', function($timeout, $scope) {
   $scope.types = _.uniq($scope.units, 'type');
 
   $scope.$watch('from', function(newVal, oldVal) {
-    if (newVal && newVal.unit && $scope.to.unit && checkSameType(newVal, $scope.to))
-      $scope.to.value = convert(newVal.unit.id, newVal.unit.symbol, $scope.to.unit.symbol, newVal.value);
+    if (newVal && newVal.unit) {
+      $scope.from.unit = _.find($scope.units, function(unit) {
+        return unit.symbol === newVal.unit.symbol;
+      });
+      if ($scope.to.unit && checkSameType(newVal, $scope.to))
+        $scope.to.value = convert(newVal.unit.id, newVal.unit.symbol, $scope.to.unit.symbol, newVal.value);
+    }
   }, true);
 
   $scope.$watch('to', function(newVal, oldVal) {
-    if (newVal && newVal.unit && $scope.from.unit && checkSameType($scope.from, newVal))
-      newVal.value = convert($scope.from.unit.id, $scope.from.unit.symbol, newVal.unit.symbol, $scope.from.value);
+    if (newVal && newVal.unit) {
+      $scope.to.unit = _.find($scope.units, function(unit) {
+        return unit.symbol === newVal.unit.symbol;
+      });
+      if ($scope.from.unit && checkSameType($scope.from, newVal))
+        $scope.to.value = convert($scope.from.unit.id, $scope.from.unit.symbol, newVal.unit.symbol, $scope.from.value);
+    }
   }, true);
 
   function checkSameType(from, to) {
