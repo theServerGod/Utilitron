@@ -137,6 +137,11 @@ ut-construction section {
   padding: 0;
 }
 
+/* Icons */
+.ut-mdi-icon {
+  vertical-align: middle;
+}
+
 /* Table of Contents {{{ */
 .ut-toc a {
   cursor: pointer;
@@ -144,8 +149,10 @@ ut-construction section {
 /* }}} */
 
 /* Math-related symbols and styling */
-md-input-container.ut-math-operator {
-  margin-top: 24px;
+.ut-math-operator {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
 }
 
 /* Stopwatch {{{ */

@@ -1,0 +1,61 @@
+<section>
+  <h5 class="ut-subheader">Telescope Magnification</h5>
+  <div class="row">
+    <div class="input-field col s12 m3">
+      <label>Telescope Focal Length (mm)</label>
+      <input type="number" min="0" ng-model="mag.tfl">
+    </div>
+    <div class="col m1 center hide-on-small-only">
+      <span class="ut-math-operator"> / </span>
+    </div>
+    <div class="input-field col s12 m3">
+      <label>Eyepiece Focal Length (mm)</label>
+      <input type="number" min="0" ng-model="mag.efl">
+    </div>
+    <div class="col m1 center hide-on-small-only">
+      <span class="ut-math-operator"> = </span>
+    </div>
+    <div class="input-field col s12 m3">
+      <label ng-class="mag.magnificationDisplay ? 'active' : ''">Magnication</label>
+      <input type="text" ng-model="mag.magnificationDisplay" readonly>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h5 class="ut-subheader">Focal Ratio</h5>
+  <div class="row">
+    <div class="input-field col s12 m3">
+      <label>Telescope Focal Length (mm)</label>
+      <input type="number" min="0" ng-model="fr.tfl">
+    </div>
+    <div class="col m1 center hide-on-small-only">
+      <span class="ut-math-operator"> / </span>
+    </div>
+    <div class="input-field col s12 m3">
+      <label>Aperture (mm)</label>
+      <input type="number" min="0" ng-model="fr.aperture">
+    </div>
+    <div class="col m1 center hide-on-small-only">
+      <span class="ut-math-operator"> = </span>
+    </div>
+    <div class="input-field col s12 m3">
+      <label ng-class="fr.focalRatioDisplay ? 'active' : ''">Focal Ratio</label>
+      <input type="text" ng-model="fr.focalRatioDisplay" readonly>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h5 class="ut-subheader">Useful Magnification</h5>
+  <div class="row">
+    <div class="input-field col s12 m6">
+      <label>Aperture (mm)</label>
+      <input type="number" min="0" ng-model="um.aperture">
+    </div>
+    <div class="input-field col s12 m6">
+      <label ng-class="um.usefulMagDisplay ? 'active' : ''">Useful Magnification</label>
+      <input type="text" ng-model="um.usefulMagDisplay" readonly>
+    </div>
+  </div>
+</section>

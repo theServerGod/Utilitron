@@ -11,12 +11,17 @@
       <h5 class="ut-subheader">Configuration</h5>
       <ut-construction>
         <div class="row">
-          <div class="col s3 settings-option">Theme</div>
-          <div class="col s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" id="theme-default"/><label for="theme-default">Default</label></div>
-          <div class="col s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" id="theme-dark"/><label for="theme-dark">Dark</label></div>
-          <div class="col s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" id="theme-light"/><label for="theme-light">Light</label></div>
+          <div class="col m3 s3 settings-option">Theme</div>
+          <div class="col m3 s9 offset-s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" id="theme-default"/><label for="theme-default">Default</label></div>
+          <div class="col m3 s9 offset-s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" id="theme-dark"/><label for="theme-dark">Dark</label></div>
+          <div class="col m3 s9 offset-s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" id="theme-light"/><label for="theme-light">Light</label></div>
         </div>
-        <button class="btn btn-flat waves-effect waves-light" ng-click="configureMenu()"><i class="mdi-navigation-menu left"></i> Configure Menu</button>
+
+        <div class="divider ut-divider"></div>
+
+        <button class="btn btn-flat waves-effect waves-light" ng-click="configureMenu()">
+          <i class="mdi-navigation-menu left"></i> Configure Menu
+        </button>
       </ut-construction>
     </section>
   </div>

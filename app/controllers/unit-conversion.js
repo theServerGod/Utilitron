@@ -1,7 +1,4 @@
 app.controller('UnitConversionController', function($timeout, $scope) {
-  $scope.from = {};
-  $scope.to = {};
-
   $scope.units = [
     { id: CONV_MASS, type: 'mass', symbol: 'kg', name: 'Kilograms (kg)' },
     { id: CONV_MASS, type: 'mass', symbol: 'g', name: 'Grams (g)' },
@@ -25,6 +22,12 @@ app.controller('UnitConversionController', function($timeout, $scope) {
 
   // Create group of unit types, to be used in select dropdowns in template
   $scope.types = _.uniq($scope.units, 'type');
+
+  $scope.reset = function() {
+    $scope.from = {};
+    $scope.to = {};
+    //$scope.unitConversionForm.$setPristine();
+  };
 
   $scope.$watch('from', function(newVal, oldVal) {
     if (newVal && newVal.unit) {
@@ -56,4 +59,6 @@ app.controller('UnitConversionController', function($timeout, $scope) {
     $scope.unitConversionForm.$error.incompat = 'Invalid: Unit types are incompatible';
     return false;
   }
+
+  $scope.reset(); // Initialise from/to values
 });

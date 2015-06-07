@@ -30,7 +30,7 @@ app.factory('menu', function($location, $rootScope) {
       name: 'Stopwatch',
       url: '#/timedate/stopwatch',
       type: 'link',
-      icon: 'mdi-hardware-watch'
+      icon: 'mdi-image-timer ut-mdi-icon'
     }]
   },
   {
@@ -66,7 +66,7 @@ app.factory('menu', function($location, $rootScope) {
       name: 'Telescope Calculator',
       url: '#/astronomy/telescopecalculator',
       type: 'link',
-      icon: 'fa fa-fw fa-star'
+      icon: 'mdi-image-panorama-fisheye ut-mdi-icon'
     }]
   },
   {

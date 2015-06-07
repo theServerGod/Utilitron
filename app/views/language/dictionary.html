@@ -1,14 +1,29 @@
 <section>
   <div class="row">
-    <ut-construction></ut-construction>
-
     <form class="col s12" name="extDictForm">
       <div class="row">
-        <div class="input-field col s6">
-          <label>Search</label>
-          <input type="search" ng-model="searchText"/>
+        <div class="input-field col s11 l6">
+          <i class="mdi-action-search prefix"></i>
+          <input id="search" type="search" ng-model="searchText"/>
+          <i class="mdi-navigation-close" ng-click="reset()"></i>
+          <label for="search">Search</label>
         </div>
       </div>
     </form>
+  </div>
+
+  <div class="row">
+    <ul class="ut-dict-ext-results" ng-show="searchText">
+      <li>
+        <a ng-href="http://www.thefreedictionary.com/{{searchText}}" target="_blank">
+          {{searchText}} at thefreedictionary.com
+        </a>
+      </li>
+      <li>
+        <a ng-href="http://dictionary.reference.com/browse/{{searchText}}" target="_blank">
+          {{searchText}} at Dictionary.com
+        </a>
+      </li>
+    </ul>
   </div>
 </section>
