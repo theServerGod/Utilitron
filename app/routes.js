@@ -40,17 +40,13 @@ app.config(function($routeProvider) {
 		})
 		.when('/calculator', {
 			templateUrl: 'app/views/calculator.html',
+			controller: 'CalculatorController',
 			title: 'Calculator'
 		})
 		.when('/language/dictionary', {
 			templateUrl: 'app/views/language/dictionary.html',
 			controller: 'DictionaryController',
 			title: 'Dictionary'
-		})
-		.when('/language/grammar', {
-			templateUrl: 'app/views/language/grammar.html',
-			controller: 'GrammarController',
-			title: 'Grammar Reference'
 		})
 		.when('/astronomy/telescopecalculator', {
 			templateUrl: 'app/views/astronomy/telescope-calculator.html',
@@ -71,6 +67,7 @@ app.config(function($routeProvider) {
 		});
 	// }}}
 
+	// Redirect to 'page not found' message
 	$routeProvider.otherwise('/404');
 });
 

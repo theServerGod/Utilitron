@@ -198,6 +198,11 @@ ut-construction section {
 .map-inset .map-axis-y { position:absolute; left:0; right:0; border-top:1px solid rgba(78, 124, 173, 0.5); height:0; -webkit-transition:top 50ms ease-out; transition:top 50ms ease-out; }
 /* }}} */
 
+/* Calculator {{{ */
+.calc-display input[type='text'] {
+  text-align: right;
+}
+/* }}} */
 
 /* Small screen styling */
 @media only screen and (max-width: 600px) {

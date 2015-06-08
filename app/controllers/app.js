@@ -9,7 +9,6 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 
 	// Expose $route var to app and child controllers - used mainly for $route.current
 	$scope.$route = $route;
-	$scope.menu = menu;
 
 	// Use angular listener to close nav panel if sidenav is not fixed
 	//$rootScope.$on('$locationChangeSuccess');
@@ -32,6 +31,9 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 		// Attempt to pull in localStorage data if any, otherwise assign defaults
 		$scope.localData.settings = (localStorage.length && localStorage.settings) ? JSON.parse(localStorage.settings) : defaultSettings;
 		$scope.localData.data = (localStorage.length && localStorage.data) ? JSON.parse(localStorage.data) : {};
+
+		// Attempt to retrieve locally-saved menu configuration, if present
+		$scope.menu = $scope.localData.settings.menu || menu;
 	}
 	init(); // Immediately perform initialisation
 

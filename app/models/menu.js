@@ -51,12 +51,6 @@ app.factory('menu', function($location, $rootScope) {
       url: '#/language/dictionary',
       type: 'link',
       icon: 'fa fa-fw fa-book'
-    },
-    {
-      name: 'Grammar Reference',
-      url: '#/language/grammar',
-      type: 'link',
-      icon: 'fa fa-fw fa-info-circle'
     }]
   },
   {

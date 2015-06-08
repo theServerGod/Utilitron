@@ -1,3 +1,44 @@
 <section>
-  <ut-construction></ut-construction>
+  <div class="row">
+    <div class="col s12 m6 offset-m3 l4 offset-l4">
+      <div class="calculator">
+        <div class="calc-display">
+          <div class="row">
+            <div class="field-input col s12">
+              <input type="text" ng-model="calcDisplay">
+            </div>
+          </div>
+        </div>
+        <div class="calc-buttons">
+          <div class="row">
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand(7)">7</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand(8)">8</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand(9)">9</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operator('/')">/</div>
+          </div>
+          <div class="row">
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand(4)">4</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand(5)">5</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand(6)">6</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operator('*')">*</div>
+          </div>
+          <div class="row">
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand(1)">1</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand(2)">2</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand(3)">3</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operator('-')">-</div>
+          </div>
+          <div class="row">
+            <div class="col s6 btn btn-flat calc-btn waves-effect" ng-click="operand(0)">0</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operand('.')">.</div>
+            <div class="col s3 btn btn-flat calc-btn waves-effect" ng-click="operator('+')">+</div>
+          </div>
+          <div class="row">
+            <div class="col s6 btn btn-flat calc-btn waves-effect" ng-click="ac()">AC</div>
+            <div class="col s6 btn btn-flat calc-btn waves-effect" ng-click="eval()">=</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.row -->
 </section>
