@@ -26,6 +26,7 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 		// Default configuration, to be used if a user-defined configuration does not exist
 		var defaultSettings = {
 			welcomeHero: true,
+			theme: 'default',
 		};
 
 		// Attempt to pull in localStorage data if any, otherwise assign defaults
@@ -54,6 +55,10 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 		}
 	};
 
+	$scope.$watch('localData.settings', function() {
+		$rootScope.$emit('saveData');
+	}, true);
+
 	/* Settings functions {{{ */
 
 	/**
@@ -71,8 +76,6 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 						$scope.localData.settings.welcomeHero = true;
 					break;
 			}
-
-			$rootScope.$emit('saveData');
 		} else {
 			console.error('toggle() - nothing was specified!');
 		}

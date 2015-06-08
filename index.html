@@ -53,7 +53,7 @@
 	<script src="build/site.min.js"></script>
 	<script src="public/js/init.js"></script>
 </head>
-<body>
+<body ng-class="{default: 'ut-theme-default', light: 'ut-theme-light', dark: 'ut-theme-dark'}[localData.settings.theme]">
 	<!-- Modals -->
 	<ng-include src="'app/partials/modals/settings.tmpl.html'"></ng-include>
 	<ng-include src="'app/partials/modals/about.tmpl.html'"></ng-include>
