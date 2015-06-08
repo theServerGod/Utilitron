@@ -5,18 +5,19 @@
 app.controller('AppController', function($scope, $timeout, menu, $location, $route, $rootScope, $log, $window, $animate, $anchorScroll, SITE_ROOT) {
 	var self = this;
 
+	// Used to set <base> url
 	$scope.SITE_ROOT = SITE_ROOT;
 
 	// Expose $route var to app and child controllers - used mainly for $route.current
 	$scope.$route = $route;
 
+	// Menu object used for sidebar
+	$scope.menu = menu;
+
 	// Use angular listener to close nav panel if sidenav is not fixed
 	//$rootScope.$on('$locationChangeSuccess');
 
 	/* Local storage functions {{{ */
-
-	// Stores configuration and user data
-	$rootScope.$on('saveData', saveLocalData); // Create 'saveData' event handler
 
 	/**
 	 * Initialise the application data and settings
@@ -34,10 +35,12 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 		$scope.localData.data = (localStorage.length && localStorage.data) ? JSON.parse(localStorage.data) : {};
 
 		// Attempt to retrieve locally-saved menu configuration, if present
-		$scope.menu = $scope.localData.settings.menu || menu;
+		if ($scope.localData.settings.menu)
+			$scope.menu.sections = $scope.localData.settings.menu
 	}
 	init(); // Immediately perform initialisation
 
+	$rootScope.$on('saveData', saveLocalData); // Create 'saveData' event handler
 	/**
 	 * Commits the current app settings and data (held in memory) to the browser's
 	 * localStorage
@@ -55,11 +58,22 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 		}
 	};
 
+	/* Settings functions {{{ */
+
+	/**
+	 * Watch the settings object so user won't have to manually save changes
+	 */
 	$scope.$watch('localData.settings', function() {
 		$rootScope.$emit('saveData');
 	}, true);
 
-	/* Settings functions {{{ */
+	/**
+	 * Persist the current menu configuration to local storage
+	 */
+	$scope.saveMenu = function() {
+		$scope.localData.settings.menu = $scope.menu.sections;
+		Materialize.toast('Your menu configuration has been saved locally', 4000);
+	};
 
 	/**
 	 * Toggles the given component to an enabled (displayed) or disabled (hidden) state
@@ -69,11 +83,16 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 		component = component || null;
 		if (component) {
 			switch (component) {
+				// Home page welcome hero
 				case 'welcomeHero':
 					if ($scope.localData.settings.welcomeHero)
 						$scope.localData.settings.welcomeHero = !$scope.localData.settings.welcomeHero;
 					else
 						$scope.localData.settings.welcomeHero = true;
+					break;
+				// Settings modal 'configure menu' feature
+				case 'configureMenu':
+					$scope.showConfigureMenu = !$scope.showConfigureMenu;
 					break;
 			}
 		} else {

@@ -7,6 +7,7 @@ var app = angular.module('app', [
 	'ngAnimate',
 	'ngTouch',
 	'ui.calendar',
+	'ui.sortable',
 ]);
 
 app.constant('SITE_ROOT', function() {

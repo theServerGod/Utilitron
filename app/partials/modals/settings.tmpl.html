@@ -9,20 +9,37 @@
     <div class="divider"></div>
     <section>
       <h5 class="ut-subheader">Configuration</h5>
-      <ut-construction>
+
+      <div class="row">
+        <div class="col m3 s3 settings-option">Theme</div>
+        <div class="col m3 s9 offset-s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" value="default" id="theme-default"/><label for="theme-default">Default</label></div>
+        <div class="col m3 s9 offset-s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" value="dark" id="theme-dark"/><label for="theme-dark">Dark</label></div>
+        <div class="col m3 s9 offset-s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" value="light" id="theme-light"/><label for="theme-light">Light</label></div>
+      </div>
+
+      <div class="divider ut-divider"></div>
+
+      <section>
         <div class="row">
-          <div class="col m3 s3 settings-option">Theme</div>
-          <div class="col m3 s9 offset-s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" value="default" id="theme-default"/><label for="theme-default">Default</label></div>
-          <div class="col m3 s9 offset-s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" value="dark" id="theme-dark"/><label for="theme-dark">Dark</label></div>
-          <div class="col m3 s9 offset-s3"><input name="ut-theme" type="radio" ng-model="localData.settings.theme" value="light" id="theme-light"/><label for="theme-light">Light</label></div>
+          <div class="col s6">
+            <button class="btn btn-flat waves-effect waves-light ut-btn-control" ng-click="toggle('configureMenu')">
+              <i class="mdi-navigation-menu ut-mdi-icon"></i> Configure Menu
+            </button>
+          </div>
+          <div class="col s6">
+            <button ng-show="showConfigureMenu" class="btn btn-flat waves-effect waves-light ut-btn-control ut-show-hide" ng-click="saveMenu()">
+              <i class="mdi-content-save ut-mdi-icon"></i> Save
+            </button>
+          </div>
         </div>
 
-        <div class="divider ut-divider"></div>
-
-        <button class="btn btn-flat waves-effect waves-light" ng-click="configureMenu()">
-          <i class="mdi-navigation-menu left"></i> Configure Menu
-        </button>
-      </ut-construction>
+        <div ng-show="showConfigureMenu" class="ut-settings-menu ut-show-hide">
+          <p class="center"><small>Click and drag the menu items to the order you wish</small></p>
+          <ul ui-sortable ng-model="menu.sections">
+            <li class="btn grey" ng-repeat="item in menu.sections"><i class="mdi-navigation-unfold-more left"></i> {{item.name}}</li>
+          </ul>
+        </div>
+      </section>
     </section>
   </div>
   <div class="modal-footer">
