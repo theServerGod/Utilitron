@@ -32,7 +32,10 @@
   <div class="row">
     <div class="col s12">
       <div class="z-depth-1 yellow lighten-4 ut-fav center">
-        <div ng-show="!localData.data.fav.length">Your favourited tools will appear here</div>
+        <div ng-show="!localData.data.fav.length && localData.settings.showHomeFavHelp" class="ut-show-hide">
+          Your favourited tools will appear here
+          <small><a href="" ng-click="setSetting('showHomeFavHelp', false)">[Hide This]</a></small>
+        </div>
       </div>
     </div>
   </div>

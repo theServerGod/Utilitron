@@ -11,14 +11,17 @@ Setup
 -----
 First, from the project root directory, install the bower components:
 
-  bower install
+	bower install
 
 Then, if you wish to use the Gulp script to serve the application, install the needed NPM packages:
 
-  npm install
+	npm install
 
-Make sure `npm` has write permissions to this directory, otherwise it may fail to install.
+Make sure NPM has write permissions to this directory, otherwise it may fail to install.
 
 Finally, you can serve the application by simply running the gulp script:
 
-  gulp
+	gulp
+
+By default, gulp will serve the application on port 8888.
+

@@ -27,6 +27,7 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 		// Default configuration, to be used if a user-defined configuration does not exist
 		var defaultSettings = {
 			welcomeHero: true,
+			showHomeFavHelp: true,
 			theme: 'default',
 		};
 
@@ -49,6 +50,15 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 		localStorage.settings = JSON.stringify($scope.localData.settings);
 		//localStorage.data = JSON.stringify($scope.localData.data);
 	}
+
+	/**
+	 * Sets the given property of the localData.settings object
+	 * @param {string} item Setting item to update
+	 * @param {mixed} value Value to set `item` to
+	 */
+	$scope.setSetting = function(item, value) {
+		$scope.localData.settings[item] = value;
+	};
 
 	$scope.clearLocalStorage = function() {
 		if (confirm('This will delete ALL your locally saved data and settings.\n\nAre you sure?')) {
@@ -77,7 +87,7 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 
 	/**
 	 * Toggles the given component to an enabled (displayed) or disabled (hidden) state
-	 * @param string The component to toggle
+	 * @param {string} The component to toggle
 	 */
 	$scope.toggle = function(component) {
 		component = component || null;
@@ -105,8 +115,8 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 
 	/**
 	 * Opens or closes the specified modal.
-	 * @param string modalSelector The modal to perform the action on
-	 * @param string action The open or close action to perform
+	 * @param {string} modalSelector The modal to perform the action on
+	 * @param {string} action The open or close action to perform
 	 */
 	$scope.modal = function(modalSelector, action) {
 		var modal = $(modalSelector);
@@ -122,7 +132,7 @@ app.controller('AppController', function($scope, $timeout, menu, $location, $rou
 
 	/**
 	 * Moves current viewport focus to given fragment identifier
-	 * @param string The fragment identifier to move focus to
+	 * @param {string} The fragment identifier to move focus to
 	 */
 	$scope.gotoAnchor = function(x) {
 		var newHash = 'anchor-' + x;
